@@ -51,6 +51,11 @@
             shape stronger songs, and get feedback that supports the vision instead
             of changing it.
           </p>
+          <p class="hero-support">
+            Built inside the Parker Tech Labs ecosystem for artists, writers,
+            beat makers, and producers who want better reflection on their work
+            without handing over the creative wheel.
+          </p>
           <div class="hero-actions">
             <a class="button button-primary" href="#early-access">Start Your Vibe Check</a>
             <a class="button button-secondary" href="#how-it-works">Learn How It Works</a>
@@ -65,6 +70,10 @@
             </div>
 
             <div class="wave-panel">
+              <div class="wave-caption">
+                <span>Current idea shape</span>
+                <span>Emotional lift</span>
+              </div>
               <div class="wave-bars" aria-hidden="true">
                 <span class="wave-bar" data-base="46"></span>
                 <span class="wave-bar" data-base="62"></span>
@@ -85,6 +94,7 @@
               <span class="tag">cinematic</span>
               <span class="tag">soulful</span>
               <span class="tag">high-energy</span>
+              <span class="tag">late-night focus</span>
             </div>
 
             <div class="score-panel">
@@ -95,6 +105,17 @@
               <div class="score-copy">
                 <p class="score-title">Vibe</p>
                 <p>cinematic / soulful / high-energy</p>
+              </div>
+            </div>
+
+            <div class="mini-insights">
+              <div class="mini-card">
+                <p class="mini-label">Hook Direction</p>
+                <p>Lean into the tension before the release.</p>
+              </div>
+              <div class="mini-card">
+                <p class="mini-label">Lyric Energy</p>
+                <p>Confident, reflective, and wide-screen.</p>
               </div>
             </div>
 
@@ -117,6 +138,11 @@
         <div class="section-heading reveal">
           <p class="eyebrow">How It Works</p>
           <h2>Built to strengthen the idea, not overwrite it.</h2>
+          <p>
+            NovaTone is meant to feel like a thoughtful session partner: you bring
+            the idea, the emotion, and the vision, and the feedback comes back in
+            a way that helps you hear your own identity more clearly.
+          </p>
         </div>
 
         <div class="card-grid three-up">
@@ -154,6 +180,11 @@
             NovaTone gives artists a space to reflect on what the record is really
             saying, where the emotion is landing, and how to push the idea without
             losing the soul of it.
+          </p>
+          <p>
+            It is built to encourage, not flatten. The goal is to help artists
+            hear what is already working, notice what feels generic, and develop
+            a stronger sense of self from record to record.
           </p>
         </div>
 
@@ -193,6 +224,11 @@
             uniqueness might be versatility, texture, atmosphere, bounce, or the
             emotional range across your catalog.
           </p>
+          <p>
+            The point is not to make every beat feel identical. Your signature can
+            show up in the details, the transitions, the swing, the atmosphere,
+            or the way your records carry feeling across different styles.
+          </p>
           <ul class="feature-list">
             <li>Understand your hidden producer signature across different beats.</li>
             <li>Track emotional patterns and recurring energy choices.</li>
@@ -224,9 +260,27 @@
             We are inviting local artists, producers, singers, rappers, engineers,
             and beat makers to test the first creative feedback experience.
           </p>
-          <a class="button button-primary" href="mailto:hello@novatone.local?subject=NovaTone%20Early%20Artist%20Test">
-            Join the Early Artist Test
-          </a>
+          <form class="early-access-form" id="early-access-form">
+            <label class="field">
+              <span>Email</span>
+              <input type="email" name="email" placeholder="artist@email.com" required>
+            </label>
+            <label class="field">
+              <span>You make</span>
+              <select name="role">
+                <option value="Artist">Songs / vocals</option>
+                <option value="Producer">Beats / production</option>
+                <option value="Engineer">Engineering / sessions</option>
+                <option value="Other">A little of everything</option>
+              </select>
+            </label>
+            <button class="button button-primary" type="submit">
+              Join the Early Artist Test
+            </button>
+          </form>
+          <p class="form-note" id="form-note" aria-live="polite">
+            Early-access capture is ready to connect to your signup backend.
+          </p>
         </div>
       </section>
     </main>

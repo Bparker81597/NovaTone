@@ -4,6 +4,8 @@ const siteNav = document.querySelector('.site-nav');
 const interactiveCards = document.querySelectorAll('.interactive-card');
 const waveformBars = document.querySelectorAll('.wave-bar');
 const revealItems = document.querySelectorAll('.reveal');
+const earlyAccessForm = document.querySelector('#early-access-form');
+const formNote = document.querySelector('#form-note');
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 navLinks.forEach((link) => {
@@ -91,5 +93,26 @@ if (!reduceMotion && waveformBars.length) {
   waveformBars.forEach((bar) => {
     const base = Number(bar.dataset.base || 50);
     bar.style.height = `${base}%`;
+  });
+}
+
+if (earlyAccessForm && formNote) {
+  earlyAccessForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+
+    const emailInput = earlyAccessForm.querySelector('input[name="email"]');
+    const roleInput = earlyAccessForm.querySelector('select[name="role"]');
+    const email = emailInput ? emailInput.value.trim() : '';
+    const role = roleInput ? roleInput.value : 'Artist';
+
+    if (!email) {
+      formNote.textContent = 'Add an email so we know where to send early-access updates.';
+      formNote.classList.remove('is-success');
+      return;
+    }
+
+    formNote.textContent = `Saved for the NovaTone early-access list: ${role.toLowerCase()} updates will be shaped around real creator feedback.`;
+    formNote.classList.add('is-success');
+    earlyAccessForm.reset();
   });
 }

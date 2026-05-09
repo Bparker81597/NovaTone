@@ -244,6 +244,11 @@ li {
   font-size: 1.1rem;
 }
 
+.hero-support {
+  max-width: 35rem;
+  margin: 16px 0 0;
+}
+
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
@@ -363,6 +368,17 @@ li {
     rgba(255, 255, 255, 0.03);
 }
 
+.wave-caption {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+  color: var(--muted);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 .wave-bars {
   height: 132px;
   display: flex;
@@ -413,6 +429,35 @@ li {
 
 .score-copy p {
   margin: 4px 0;
+}
+
+.mini-insights {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.mini-card {
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.045);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.mini-card p {
+  margin: 0;
+}
+
+.mini-label {
+  margin-bottom: 6px !important;
+  color: #e6eaff !important;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.72rem !important;
+  line-height: 1.4 !important;
 }
 
 .insight-note {
@@ -597,6 +642,68 @@ li {
   margin-top: 14px;
 }
 
+.early-access-form {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr) auto;
+  gap: 14px;
+  align-items: end;
+  margin-top: 26px;
+}
+
+.field {
+  display: grid;
+  gap: 8px;
+  text-align: left;
+}
+
+.field span {
+  color: #e6eaff;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.field input,
+.field select {
+  width: 100%;
+  min-height: 54px;
+  padding: 0 16px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text);
+  font: inherit;
+  outline: none;
+  transition: border-color 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+}
+
+.field select {
+  appearance: none;
+}
+
+.field input::placeholder {
+  color: #8f97bc;
+}
+
+.field input:focus,
+.field select:focus {
+  border-color: rgba(102, 245, 209, 0.42);
+  box-shadow: 0 0 0 4px rgba(102, 245, 209, 0.08);
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.form-note {
+  min-height: 1.75em;
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.form-note.is-success {
+  color: var(--accent-strong);
+}
+
 .site-footer {
   width: min(1180px, calc(100% - 32px));
   margin: 0 auto 34px;
@@ -699,6 +806,11 @@ li {
     padding: 24px;
   }
 
+  .early-access-form,
+  .mini-insights {
+    grid-template-columns: 1fr;
+  }
+
   h1 {
     max-width: 11ch;
   }
@@ -731,7 +843,8 @@ li {
   }
 
   .hero-actions,
-  .score-panel {
+  .score-panel,
+  .early-access-form {
     flex-direction: column;
     align-items: stretch;
   }

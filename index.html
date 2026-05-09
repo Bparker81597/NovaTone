@@ -57,7 +57,7 @@
             without handing over the creative wheel.
           </p>
           <div class="hero-actions">
-            <a class="button button-primary" href="#early-access">Start Your Vibe Check</a>
+            <a class="button button-primary" href="#vibe-check">Start Your Vibe Check</a>
             <a class="button button-secondary" href="#how-it-works">Learn How It Works</a>
           </div>
         </div>
@@ -122,6 +122,191 @@
             <div class="insight-note">
               Your strongest moments feel emotional, wide, and intentional. Push
               the hook a little further and let the textures breathe.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section vibe-check-section" id="vibe-check">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Start Your First Vibe Check</p>
+          <h2>Start Your First Vibe Check</h2>
+          <p>
+            Upload a beat, demo, rough idea, or unfinished concept and let
+            NovaTone help uncover the creative direction already inside it.
+          </p>
+        </div>
+
+        <div class="vibe-check-card interactive-card reveal">
+          <div class="vibe-check-glow"></div>
+          <div class="vibe-check-particles" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+
+          <div class="vibe-check-layout">
+            <div class="upload-studio-panel">
+              <label class="studio-dropzone" id="studio-dropzone">
+                <input
+                  class="studio-file-input"
+                  id="studio-file-input"
+                  type="file"
+                  accept=".mp3,.wav,audio/mpeg,audio/wav"
+                >
+                <span class="studio-icon">+</span>
+                <span class="studio-title">Drop your track into the room</span>
+                <span class="studio-copy">MP3 / WAV support</span>
+                <span class="studio-helper">Finished track or rough idea — both are welcome.</span>
+              </label>
+
+              <div class="studio-status-card">
+                <div class="studio-status-top">
+                  <span class="studio-status-label">Creative intake</span>
+                  <span class="studio-status-percent" id="studio-upload-percent">0%</span>
+                </div>
+                <div class="studio-progress-track">
+                  <div class="studio-progress-fill" id="studio-upload-progress"></div>
+                </div>
+                <p class="studio-file-copy" id="studio-file-copy">
+                  No audio loaded yet. When you are ready, NovaTone will start by listening for mood, space, and intent.
+                </p>
+
+                <div class="studio-wave-preview" id="studio-wave-preview">
+                  <div class="studio-wave-top">
+                    <span>Waveform preview</span>
+                    <span>subtle motion</span>
+                  </div>
+                  <div class="studio-waveform" id="studio-waveform" aria-hidden="true">
+                    <span class="studio-wave-bar" data-base="32"></span>
+                    <span class="studio-wave-bar" data-base="44"></span>
+                    <span class="studio-wave-bar" data-base="58"></span>
+                    <span class="studio-wave-bar" data-base="72"></span>
+                    <span class="studio-wave-bar" data-base="48"></span>
+                    <span class="studio-wave-bar" data-base="66"></span>
+                    <span class="studio-wave-bar" data-base="81"></span>
+                    <span class="studio-wave-bar" data-base="53"></span>
+                    <span class="studio-wave-bar" data-base="70"></span>
+                    <span class="studio-wave-bar" data-base="60"></span>
+                    <span class="studio-wave-bar" data-base="76"></span>
+                    <span class="studio-wave-bar" data-base="50"></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="vibe-intent-panel">
+              <div class="vibe-field vibe-field-large">
+                <label for="track-inspiration">What inspired this track?</label>
+                <textarea
+                  id="track-inspiration"
+                  placeholder="A moment, a memory, a late-night drive, a scene, a feeling, or an unfinished thought."
+                  rows="4"
+                ></textarea>
+              </div>
+
+              <div class="vibe-field">
+                <span>What emotion or vibe are you aiming for?</span>
+                <div class="vibe-tag-grid" id="vibe-tag-grid">
+                  <button class="vibe-tag is-selected" data-vibe="cinematic" type="button">cinematic</button>
+                  <button class="vibe-tag" data-vibe="soulful" type="button">soulful</button>
+                  <button class="vibe-tag" data-vibe="nostalgic" type="button">nostalgic</button>
+                  <button class="vibe-tag" data-vibe="dark" type="button">dark</button>
+                  <button class="vibe-tag" data-vibe="uplifting" type="button">uplifting</button>
+                  <button class="vibe-tag" data-vibe="dreamy" type="button">dreamy</button>
+                  <button class="vibe-tag" data-vibe="experimental" type="button">experimental</button>
+                  <button class="vibe-tag" data-vibe="aggressive" type="button">aggressive</button>
+                  <button class="vibe-tag" data-vibe="atmospheric" type="button">atmospheric</button>
+                </div>
+              </div>
+
+              <div class="vibe-field vibe-field-large">
+                <label for="track-identity">What makes this feel like YOU?</label>
+                <textarea
+                  id="track-identity"
+                  placeholder="Describe the textures, pacing, bounce, melodies, or emotional choices that make this yours."
+                  rows="4"
+                ></textarea>
+              </div>
+
+              <div class="vibe-field">
+                <span>Is this:</span>
+                <div class="track-state-grid" id="track-state-grid">
+                  <button class="track-state is-selected" data-state="unfinished" type="button">unfinished</button>
+                  <button class="track-state" data-state="experimental" type="button">experimental</button>
+                  <button class="track-state" data-state="polished" type="button">polished</button>
+                  <button class="track-state" data-state="just an idea" type="button">just an idea</button>
+                </div>
+              </div>
+
+              <div class="vibe-field vibe-field-large">
+                <label for="track-inspirations">Whose storytelling or creative energy inspires you?</label>
+                <textarea
+                  id="track-inspirations"
+                  placeholder="Optional. Share the artists, scenes, albums, or moods that influence your direction."
+                  rows="3"
+                ></textarea>
+              </div>
+
+              <div class="vibe-actions">
+                <button class="button button-primary vibe-analyze-button" id="vibe-analyze-button" type="button">
+                  Analyze Creative Identity
+                </button>
+              </div>
+
+              <div class="vibe-loading" id="vibe-loading" aria-live="polite">
+                <div class="vibe-loading-orb"></div>
+                <p class="vibe-loading-title">NovaTone is listening for the emotional shape of the idea.</p>
+                <p class="vibe-loading-text" id="vibe-loading-text">Mapping emotional textures...</p>
+              </div>
+
+              <div class="vibe-results-preview" id="vibe-results-preview">
+                <div class="vibe-results-head">
+                  <p class="score-label">Analysis Preview</p>
+                  <span class="card-chip">supportive</span>
+                </div>
+
+                <div class="preview-result-block">
+                  <p class="preview-result-label">Vibe Summary</p>
+                  <p class="preview-result-copy" id="preview-vibe-summary">
+                    Strong late-night cinematic energy with immersive spacing and reflective tension.
+                  </p>
+                </div>
+
+                <div class="preview-result-block">
+                  <p class="preview-result-label">Emotional Energy Meter</p>
+                  <div class="preview-energy-meter" id="preview-energy-meter">
+                    <span class="preview-energy-bar" data-base="44"></span>
+                    <span class="preview-energy-bar" data-base="61"></span>
+                    <span class="preview-energy-bar" data-base="76"></span>
+                    <span class="preview-energy-bar" data-base="58"></span>
+                    <span class="preview-energy-bar" data-base="83"></span>
+                    <span class="preview-energy-bar" data-base="67"></span>
+                    <span class="preview-energy-bar" data-base="49"></span>
+                    <span class="preview-energy-bar" data-base="73"></span>
+                  </div>
+                </div>
+
+                <div class="preview-result-block">
+                  <p class="preview-result-label">Creative Identity Traits</p>
+                  <div class="preview-traits" id="preview-traits">
+                    <span>cinematic</span>
+                    <span>layered</span>
+                    <span>emotional pacing</span>
+                    <span>spacious transitions</span>
+                  </div>
+                </div>
+
+                <div class="preview-result-block">
+                  <p class="preview-result-label">Supportive Insight</p>
+                  <p class="preview-result-copy" id="preview-supportive-insight">
+                    Your sound leans toward emotional atmosphere and spacious transitions rather than overwhelming complexity.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

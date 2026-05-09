@@ -1,0 +1,774 @@
+:root {
+  color-scheme: dark;
+  --bg: #060816;
+  --bg-deep: #03040c;
+  --surface: rgba(11, 16, 36, 0.72);
+  --surface-strong: rgba(15, 20, 44, 0.9);
+  --surface-soft: rgba(255, 255, 255, 0.05);
+  --line: rgba(157, 174, 255, 0.14);
+  --text: #f5f7ff;
+  --muted: #adb5da;
+  --accent: #7a8cff;
+  --accent-strong: #66f5d1;
+  --accent-soft: #ff6fcf;
+  --shadow: 0 24px 80px rgba(0, 0, 0, 0.45);
+  --radius-lg: 28px;
+  --radius-md: 20px;
+  --radius-sm: 14px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(102, 245, 209, 0.13), transparent 24%),
+    radial-gradient(circle at 80% 10%, rgba(255, 111, 207, 0.18), transparent 24%),
+    radial-gradient(circle at 50% 90%, rgba(122, 140, 255, 0.16), transparent 24%),
+    linear-gradient(180deg, #090b1b 0%, #05060e 100%);
+  color: var(--text);
+}
+
+body.menu-open {
+  overflow: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.site-shell {
+  position: relative;
+  overflow: hidden;
+}
+
+.ambient,
+.grid-glow {
+  position: fixed;
+  inset: auto;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.ambient-one {
+  top: 6rem;
+  left: -10rem;
+  width: 24rem;
+  height: 24rem;
+  background: radial-gradient(circle, rgba(122, 140, 255, 0.28), transparent 70%);
+  filter: blur(30px);
+}
+
+.ambient-two {
+  right: -8rem;
+  bottom: 8rem;
+  width: 22rem;
+  height: 22rem;
+  background: radial-gradient(circle, rgba(255, 111, 207, 0.22), transparent 70%);
+  filter: blur(28px);
+}
+
+.grid-glow {
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.85), transparent 92%);
+}
+
+.site-header,
+main,
+.site-footer {
+  position: relative;
+  z-index: 1;
+}
+
+.site-header {
+  width: min(1180px, calc(100% - 32px));
+  margin: 20px auto 0;
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(7, 11, 24, 0.72);
+  backdrop-filter: blur(18px);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.18);
+}
+
+.brand {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.brand-mark,
+.footer-brand {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.brand-mark {
+  font-size: 1.15rem;
+}
+
+.brand-sub {
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.site-nav a {
+  color: var(--muted);
+  font-size: 0.96rem;
+  transition: color 180ms ease;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible {
+  color: var(--text);
+}
+
+.nav-cta {
+  padding: 10px 16px;
+  border: 1px solid rgba(102, 245, 209, 0.26);
+  border-radius: 999px;
+  background: rgba(102, 245, 209, 0.09);
+}
+
+.menu-toggle {
+  display: none;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  margin: 0 auto;
+  background: var(--text);
+  transition: transform 180ms ease, opacity 180ms ease;
+}
+
+.menu-toggle span + span {
+  margin-top: 5px;
+}
+
+main {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+  gap: 48px;
+  align-items: center;
+  min-height: calc(100vh - 120px);
+  padding: 72px 0 44px;
+}
+
+.eyebrow {
+  margin: 0 0 18px;
+  font-size: 0.84rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-strong);
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-family: "Space Grotesk", sans-serif;
+  line-height: 1;
+}
+
+h1 {
+  font-size: clamp(3.4rem, 8vw, 6.2rem);
+  letter-spacing: -0.04em;
+  max-width: 12ch;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  letter-spacing: -0.03em;
+  max-width: 14ch;
+}
+
+h3 {
+  font-size: 1.4rem;
+  line-height: 1.2;
+}
+
+p,
+li {
+  color: var(--muted);
+  font-size: 1.02rem;
+  line-height: 1.75;
+}
+
+.hero-text {
+  max-width: 38rem;
+  margin: 22px 0 0;
+  font-size: 1.1rem;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 30px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 54px;
+  padding: 0 22px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-weight: 700;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    border-color 180ms ease,
+    background-color 180ms ease;
+}
+
+.button:hover,
+.button:focus-visible {
+  transform: translateY(-2px);
+}
+
+.button-primary {
+  background: linear-gradient(135deg, var(--accent), var(--accent-soft));
+  box-shadow: 0 16px 34px rgba(122, 140, 255, 0.3);
+}
+
+.button-secondary {
+  border-color: var(--line);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.hero-visual {
+  display: flex;
+  justify-content: center;
+}
+
+.analysis-card,
+.info-card,
+.feature-panel,
+.cta-panel,
+.philosophy-strip,
+.ethics-section {
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, rgba(15, 20, 44, 0.88), rgba(8, 12, 26, 0.88));
+  box-shadow: var(--shadow);
+}
+
+.analysis-card {
+  width: min(520px, 100%);
+  padding: 28px;
+  border-radius: 30px;
+  position: relative;
+  overflow: hidden;
+}
+
+.analysis-card::before {
+  content: "";
+  position: absolute;
+  inset: auto -20% 10% auto;
+  width: 14rem;
+  height: 14rem;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(102, 245, 209, 0.18), transparent 72%);
+}
+
+.card-topline,
+.score-panel,
+.tag-row {
+  position: relative;
+  z-index: 1;
+}
+
+.card-topline {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: center;
+}
+
+.card-label,
+.card-chip,
+.score-label,
+.score-title,
+.step-number {
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.74rem;
+  font-weight: 700;
+}
+
+.card-chip,
+.step-number,
+.tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.wave-panel {
+  margin-top: 22px;
+  padding: 22px 16px;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent),
+    rgba(255, 255, 255, 0.03);
+}
+
+.wave-bars {
+  height: 132px;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.wave-bar {
+  flex: 1 1 0;
+  min-width: 10px;
+  height: 40%;
+  border-radius: 999px 999px 10px 10px;
+  background: linear-gradient(180deg, var(--accent-strong), var(--accent));
+  box-shadow: 0 0 24px rgba(102, 245, 209, 0.22);
+  transition: height 380ms ease;
+}
+
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.tag {
+  color: var(--text);
+}
+
+.score-panel {
+  margin-top: 22px;
+  padding: 18px 20px;
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.score-value {
+  margin: 6px 0 0;
+  font-family: "Space Grotesk", sans-serif;
+  color: var(--text);
+  font-size: 3rem;
+  line-height: 1;
+}
+
+.score-copy p {
+  margin: 4px 0;
+}
+
+.insight-note {
+  margin-top: 18px;
+  padding: 16px 18px;
+  border-left: 3px solid var(--accent-strong);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #d9defb;
+  line-height: 1.7;
+  position: relative;
+  z-index: 1;
+}
+
+.philosophy-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  padding: 18px 22px;
+  border-radius: 22px;
+}
+
+.philosophy-strip p {
+  margin: 0;
+  font-size: 0.95rem;
+  text-align: center;
+  color: #e4e8ff;
+}
+
+.section {
+  padding: 110px 0 0;
+}
+
+.section-heading p {
+  max-width: 40rem;
+  margin-top: 18px;
+}
+
+.card-grid {
+  display: grid;
+  gap: 22px;
+  margin-top: 34px;
+}
+
+.three-up {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.info-card,
+.feature-panel,
+.cta-panel {
+  border-radius: var(--radius-lg);
+}
+
+.info-card,
+.feature-panel {
+  position: relative;
+  overflow: hidden;
+}
+
+.info-card {
+  min-height: 270px;
+  padding: 26px;
+}
+
+.info-card::after,
+.feature-panel::after,
+.cta-panel::after {
+  content: "";
+  position: absolute;
+  inset: auto auto -40% -10%;
+  width: 14rem;
+  height: 14rem;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(122, 140, 255, 0.16), transparent 68%);
+  pointer-events: none;
+}
+
+.info-card p,
+.feature-panel p {
+  margin: 16px 0 0;
+}
+
+.split-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  align-items: center;
+}
+
+.split-section.reverse {
+  grid-template-columns: 0.95fr 1.05fr;
+}
+
+.feature-panel {
+  min-height: 100%;
+  padding: 28px;
+}
+
+.feature-list {
+  margin: 22px 0 0;
+  padding-left: 18px;
+}
+
+.feature-list li + li {
+  margin-top: 10px;
+}
+
+.signature-meter {
+  min-height: 320px;
+  display: grid;
+  place-items: center;
+  gap: 24px;
+}
+
+.signature-ring {
+  width: 210px;
+  height: 210px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background:
+    radial-gradient(circle, rgba(122, 140, 255, 0.22), transparent 58%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.02));
+  box-shadow:
+    inset 0 0 0 12px rgba(255, 255, 255, 0.02),
+    0 0 50px rgba(122, 140, 255, 0.18);
+}
+
+.signature-ring span {
+  display: block;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.74rem;
+}
+
+.signature-ring strong {
+  display: block;
+  margin-top: 6px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.7rem;
+}
+
+.signature-copy {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  gap: 12px 18px;
+}
+
+.signature-copy p {
+  margin: 0;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #e4e8ff;
+}
+
+.ethics-section {
+  padding: 42px;
+  border-radius: 30px;
+}
+
+.cta-section {
+  padding-bottom: 90px;
+}
+
+.cta-panel {
+  padding: 42px;
+  text-align: center;
+}
+
+.cta-panel h2,
+.cta-panel p {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-panel .button {
+  margin-top: 14px;
+}
+
+.site-footer {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto 34px;
+  padding-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px 24px;
+  border-top: 1px solid var(--line);
+}
+
+.site-footer p {
+  margin: 18px 0 0;
+  font-size: 0.94rem;
+}
+
+.interactive-card {
+  transform-style: preserve-3d;
+  transition:
+    transform 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease;
+}
+
+.interactive-card:hover,
+.interactive-card:focus-within {
+  border-color: rgba(102, 245, 209, 0.28);
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.5);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 600ms ease, transform 600ms ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (max-width: 960px) {
+  .site-header {
+    border-radius: 26px;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .site-nav {
+    position: absolute;
+    top: calc(100% + 12px);
+    right: 0;
+    left: 0;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    padding: 16px;
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    background: rgba(7, 11, 24, 0.96);
+    box-shadow: var(--shadow);
+  }
+
+  .site-nav.is-open {
+    display: flex;
+  }
+
+  .site-nav a {
+    padding: 12px 14px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  .nav-cta {
+    text-align: center;
+  }
+
+  .hero,
+  .split-section,
+  .split-section.reverse,
+  .three-up,
+  .philosophy-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    min-height: auto;
+    padding-top: 54px;
+  }
+
+  .analysis-card,
+  .cta-panel,
+  .ethics-section {
+    padding: 24px;
+  }
+
+  h1 {
+    max-width: 11ch;
+  }
+
+  .site-footer {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .site-header,
+  main,
+  .site-footer {
+    width: min(100% - 20px, 1180px);
+  }
+
+  .site-header {
+    margin-top: 12px;
+    padding: 14px 14px 14px 16px;
+  }
+
+  .hero {
+    gap: 28px;
+    padding: 42px 0 18px;
+  }
+
+  .section {
+    padding-top: 84px;
+  }
+
+  .hero-actions,
+  .score-panel {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .wave-bars {
+    gap: 7px;
+    height: 110px;
+  }
+
+  .button {
+    width: 100%;
+  }
+
+  .signature-ring {
+    width: 180px;
+    height: 180px;
+  }
+
+  .cta-section {
+    padding-bottom: 70px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}

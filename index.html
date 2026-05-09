@@ -3,99 +3,241 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NovaTone</title>
-  <style>
-    :root {
-      color-scheme: light;
-      --bg: #f6efe4;
-      --surface: rgba(255, 255, 255, 0.72);
-      --text: #1e1d1a;
-      --accent: #c95f3d;
-      --accent-dark: #7f3523;
-      --border: rgba(30, 29, 26, 0.12);
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      min-height: 100vh;
-      display: grid;
-      place-items: center;
-      padding: 24px;
-      font-family: Georgia, "Times New Roman", serif;
-      background:
-        radial-gradient(circle at top left, rgba(201, 95, 61, 0.24), transparent 34%),
-        radial-gradient(circle at bottom right, rgba(127, 53, 35, 0.2), transparent 30%),
-        linear-gradient(135deg, #f6efe4 0%, #efe4d0 100%);
-      color: var(--text);
-    }
-
-    main {
-      width: min(720px, 100%);
-      padding: 56px 40px;
-      border: 1px solid var(--border);
-      border-radius: 28px;
-      background: var(--surface);
-      backdrop-filter: blur(18px);
-      box-shadow: 0 30px 80px rgba(0, 0, 0, 0.08);
-    }
-
-    .eyebrow {
-      margin: 0 0 14px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      font-size: 0.78rem;
-      color: var(--accent-dark);
-    }
-
-    h1 {
-      margin: 0;
-      font-size: clamp(3rem, 8vw, 5.8rem);
-      line-height: 0.95;
-    }
-
-    p {
-      margin: 22px 0 0;
-      max-width: 38rem;
-      font-size: 1.1rem;
-      line-height: 1.7;
-    }
-
-    a {
-      color: var(--accent-dark);
-      text-decoration-thickness: 2px;
-      text-underline-offset: 3px;
-    }
-
-    .pill {
-      display: inline-block;
-      margin-top: 28px;
-      padding: 10px 16px;
-      border-radius: 999px;
-      background: var(--accent);
-      color: white;
-      font-size: 0.95rem;
-      text-decoration: none;
-    }
-
-    .pill:hover {
-      background: var(--accent-dark);
-    }
-  </style>
+  <meta
+    name="description"
+    content="NovaTone helps artists and producers understand their creative identity, shape stronger songs, and get feedback that supports the vision instead of changing it."
+  >
+  <title>NovaTone | Artist-First Creative Feedback</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <main>
-    <p class="eyebrow">GitHub Pages Ready</p>
-    <h1>NovaTone</h1>
-    <p>
-      This repository is live-ready for GitHub Pages. Replace this landing page
-      with your project, portfolio, product, or release notes whenever you are
-      ready to publish the real site.
-    </p>
-    <a class="pill" href="https://github.com/Bparker81597/NovaTone">View Repository</a>
-  </main>
+  <div class="site-shell">
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+    <div class="grid-glow"></div>
+
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="NovaTone home">
+        <span class="brand-mark">NovaTone</span>
+        <span class="brand-sub">by Parker Tech Labs</span>
+      </a>
+
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="site-nav" id="site-nav">
+        <a href="#how-it-works">How It Works</a>
+        <a href="#for-artists">For Artists</a>
+        <a href="#for-producers">For Producers</a>
+        <a class="nav-cta" href="#early-access">Early Access</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy reveal">
+          <p class="eyebrow">Creative feedback that respects the artist</p>
+          <h1>Discover the sound that already lives in you.</h1>
+          <p class="hero-text">
+            NovaTone helps artists and producers understand their creative identity,
+            shape stronger songs, and get feedback that supports the vision instead
+            of changing it.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#early-access">Start Your Vibe Check</a>
+            <a class="button button-secondary" href="#how-it-works">Learn How It Works</a>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal">
+          <div class="analysis-card">
+            <div class="card-topline">
+              <span class="card-label">Session Insight</span>
+              <span class="card-chip">Artist-first</span>
+            </div>
+
+            <div class="wave-panel">
+              <div class="wave-bars" aria-hidden="true">
+                <span class="wave-bar" data-base="46"></span>
+                <span class="wave-bar" data-base="62"></span>
+                <span class="wave-bar" data-base="78"></span>
+                <span class="wave-bar" data-base="58"></span>
+                <span class="wave-bar" data-base="88"></span>
+                <span class="wave-bar" data-base="72"></span>
+                <span class="wave-bar" data-base="54"></span>
+                <span class="wave-bar" data-base="68"></span>
+                <span class="wave-bar" data-base="82"></span>
+                <span class="wave-bar" data-base="60"></span>
+                <span class="wave-bar" data-base="76"></span>
+                <span class="wave-bar" data-base="52"></span>
+              </div>
+            </div>
+
+            <div class="tag-row">
+              <span class="tag">cinematic</span>
+              <span class="tag">soulful</span>
+              <span class="tag">high-energy</span>
+            </div>
+
+            <div class="score-panel">
+              <div>
+                <p class="score-label">Creative Identity Score</p>
+                <p class="score-value">92</p>
+              </div>
+              <div class="score-copy">
+                <p class="score-title">Vibe</p>
+                <p>cinematic / soulful / high-energy</p>
+              </div>
+            </div>
+
+            <div class="insight-note">
+              Your strongest moments feel emotional, wide, and intentional. Push
+              the hook a little further and let the textures breathe.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="philosophy-strip reveal" aria-label="NovaTone philosophy">
+        <p>Artist-first feedback</p>
+        <p>No copy-paste creativity</p>
+        <p>Built to protect originality</p>
+        <p>Suggestions, not control</p>
+      </section>
+
+      <section class="section" id="how-it-works">
+        <div class="section-heading reveal">
+          <p class="eyebrow">How It Works</p>
+          <h2>Built to strengthen the idea, not overwrite it.</h2>
+        </div>
+
+        <div class="card-grid three-up">
+          <article class="info-card interactive-card reveal">
+            <span class="step-number">Step 1</span>
+            <h3>Upload Your Beat or Demo</h3>
+            <p>Share a beat, song idea, vocal demo, or snippet.</p>
+          </article>
+
+          <article class="info-card interactive-card reveal">
+            <span class="step-number">Step 2</span>
+            <h3>Tell Us the Vision</h3>
+            <p>
+              Add what inspired it, what emotion you wanted, and what makes it
+              feel like you.
+            </p>
+          </article>
+
+          <article class="info-card interactive-card reveal">
+            <span class="step-number">Step 3</span>
+            <h3>Get Creative Feedback</h3>
+            <p>
+              NovaTone returns vibe insights, arrangement notes, lyric direction
+              ideas, and identity patterns while keeping your style intact.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section split-section" id="for-artists">
+        <div class="section-heading reveal">
+          <p class="eyebrow">For Artists</p>
+          <h2>For singers, rappers, and writers who want sharper instincts.</h2>
+          <p>
+            NovaTone gives artists a space to reflect on what the record is really
+            saying, where the emotion is landing, and how to push the idea without
+            losing the soul of it.
+          </p>
+        </div>
+
+        <div class="feature-panel interactive-card reveal">
+          <ul class="feature-list">
+            <li>Find lyric themes that match the beat without sounding forced.</li>
+            <li>Discover cadence pockets that feel natural to your delivery.</li>
+            <li>Shape hooks and verses with more emotional direction.</li>
+            <li>Understand the tone of the record before you overwork it.</li>
+            <li>Avoid sounding generic by leaning further into what already feels true.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section split-section reverse" id="for-producers">
+        <div class="feature-panel interactive-card reveal">
+          <div class="signature-meter">
+            <div class="signature-ring">
+              <span>Identity</span>
+              <strong>Signature</strong>
+            </div>
+            <div class="signature-copy">
+              <p>Texture</p>
+              <p>Atmosphere</p>
+              <p>Bounce</p>
+              <p>Emotional range</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-heading reveal">
+          <p class="eyebrow">For Producers</p>
+          <h2>Your producer signature does not have to mean one formula.</h2>
+          <p>
+            Beat makers can use NovaTone to study their patterns, contrast their
+            strongest ideas, and find what makes their sound different. That
+            uniqueness might be versatility, texture, atmosphere, bounce, or the
+            emotional range across your catalog.
+          </p>
+          <ul class="feature-list">
+            <li>Understand your hidden producer signature across different beats.</li>
+            <li>Track emotional patterns and recurring energy choices.</li>
+            <li>See what makes your sound distinct without forcing sameness.</li>
+            <li>Explore new styles while protecting your identity.</li>
+            <li>Get feedback on energy, transitions, and arrangement flow.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section ethics-section" id="ethics">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Artist Protection</p>
+          <h2>Your creativity stays yours.</h2>
+          <p>
+            NovaTone is designed to support artists, not replace them. The system
+            gives suggestions, asks better questions, and helps creators understand
+            their direction. It should never force artists into one sound or make
+            everyone sound the same.
+          </p>
+        </div>
+      </section>
+
+      <section class="section cta-section" id="early-access">
+        <div class="cta-panel reveal">
+          <p class="eyebrow">Early Access</p>
+          <h2>Help shape NovaTone from the beginning.</h2>
+          <p>
+            We are inviting local artists, producers, singers, rappers, engineers,
+            and beat makers to test the first creative feedback experience.
+          </p>
+          <a class="button button-primary" href="mailto:hello@novatone.local?subject=NovaTone%20Early%20Artist%20Test">
+            Join the Early Artist Test
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p class="footer-brand">NovaTone</p>
+      <p>Built by Parker Tech Labs</p>
+      <p>Powered by artist-first creative intelligence.</p>
+    </footer>
+  </div>
+
+  <script src="js/main.js"></script>
 </body>
 </html>

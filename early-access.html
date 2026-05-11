@@ -5,229 +5,214 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta
     name="description"
-    content="NovaTone Early Artist Testing Portal invites creators to help shape artist-first creative feedback experiences."
+    content="Apply for NovaTone Early Artist Testing and help shape an artist-first creative identity platform."
   >
-  <title>NovaTone | Early Artist Testing Portal</title>
+  <title>NovaTone | Early Access</title>
+  <link rel="icon" type="image/svg+xml" href="assets/novatone-mark.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
     rel="stylesheet"
   >
-  <link rel="stylesheet" href="css/early-access.css">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <div class="page-shell">
     <div class="ambient ambient-one"></div>
     <div class="ambient ambient-two"></div>
     <div class="grid-glow"></div>
+    <div class="ambient-lines"></div>
 
-    <header class="site-header">
-      <a class="brand" href="#top" aria-label="NovaTone Early Access home">
-        <span class="brand-mark">NovaTone</span>
-        <span class="brand-sub">by Parker Tech Labs</span>
-      </a>
+    <header class="nt-header">
+      <div class="nt-header-inner">
+        <a href="index.html" class="nt-brand">
+          <img src="assets/novatone-logo.png" alt="NovaTone logo" class="nt-logo">
+          <div class="nt-brand-copy">
+            <span class="nt-wordmark">NovaTone</span>
+            <span class="nt-tagline">Creative Identity Intelligence</span>
+            <span class="nt-built">by Parker Tech Labs</span>
+          </div>
+        </a>
 
-      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
-        <span></span>
-        <span></span>
-      </button>
+        <button class="nt-menu-toggle" aria-label="Open navigation" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
 
-      <nav class="site-nav" id="site-nav">
-        <a href="#why-join">Why Join</a>
-        <a href="#testing-focus">What We’re Testing</a>
-        <a href="#apply">Apply</a>
-        <a class="nav-cta" href="#creator-promise">Creator Promise</a>
-      </nav>
+        <nav class="nt-nav">
+          <a href="index.html">Home</a>
+          <a href="how-it-works.html">How It Works</a>
+          <a href="artists.html">Artists</a>
+          <a href="producers.html">Producers</a>
+          <a href="early-access.html" class="is-active" aria-current="page">Early Access</a>
+          <a href="creator-studio.html" class="nt-nav-cta">Creator Studio</a>
+        </nav>
+      </div>
     </header>
 
-    <main id="top">
-      <section class="hero">
-        <div class="hero-copy reveal">
-          <p class="eyebrow">Early Artist Testing Portal</p>
-          <h1>Help shape the future of artist-first creative feedback.</h1>
-          <p class="hero-text">
+    <main>
+      <section class="nt-page-hero">
+        <div class="nt-page-hero-copy reveal">
+          <p class="eyebrow">Early Access</p>
+          <h1>Help shape the future of <span>artist-first creative feedback.</span></h1>
+          <p>
             NovaTone is inviting artists, producers, singers, rappers, engineers,
             and beat makers to test an early creative identity experience built
             to support originality, not replace it.
           </p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="#apply">Apply to Test NovaTone</a>
-            <a class="button button-secondary" href="#testing-focus">See What We’re Testing</a>
+          <div class="nt-hero-actions">
+            <a href="#apply" class="button button-primary">Apply to Test NovaTone</a>
           </div>
         </div>
 
-        <div class="hero-visual reveal">
-          <div class="hero-card">
-            <div class="hero-card-top">
-              <span class="card-label">Creator Circle</span>
-              <span class="card-chip">artist-first</span>
-            </div>
-            <div class="hero-wave" id="hero-wave" aria-hidden="true">
-              <span class="wave-bar" data-base="36"></span>
-              <span class="wave-bar" data-base="52"></span>
-              <span class="wave-bar" data-base="74"></span>
-              <span class="wave-bar" data-base="61"></span>
-              <span class="wave-bar" data-base="82"></span>
-              <span class="wave-bar" data-base="58"></span>
-              <span class="wave-bar" data-base="78"></span>
-              <span class="wave-bar" data-base="49"></span>
-              <span class="wave-bar" data-base="68"></span>
-              <span class="wave-bar" data-base="57"></span>
-              <span class="wave-bar" data-base="73"></span>
-              <span class="wave-bar" data-base="44"></span>
-            </div>
-            <div class="hero-notes">
-              <span>creator trust</span>
-              <span>originality-first</span>
-              <span>feedback with care</span>
-            </div>
-            <p class="hero-note-copy">
-              Early testers help NovaTone understand what feels helpful, respectful,
-              and creatively honest before the platform grows.
-            </p>
-          </div>
+        <div class="nt-page-hero-note reveal">
+          <div class="nt-kicker">Creator Promise</div>
+          <p>
+            This is meant to feel like the beginning of a creative movement, not
+            a cold beta signup. The people joining early are collaborators in how
+            this platform learns to respect art.
+          </p>
         </div>
       </section>
 
-      <section class="section" id="why-join">
-        <div class="section-heading reveal">
+      <section class="nt-section" id="why-join">
+        <div class="nt-section-heading reveal">
           <p class="eyebrow">Why Join</p>
-          <h2>Be part of building something creators can actually trust.</h2>
+          <h2>Help shape NovaTone with creator instincts, not product assumptions.</h2>
         </div>
 
-        <div class="card-grid four-up">
-          <article class="info-card interactive-card reveal">
+        <div class="nt-grid two-up">
+          <article class="nt-card interactive-card reveal">
             <h3>Be heard early</h3>
             <p>Your perspective can shape the direction before the experience hardens into something less human.</p>
           </article>
-          <article class="info-card interactive-card reveal">
+          <article class="nt-card interactive-card reveal">
             <h3>Help protect artist originality</h3>
             <p>We want real creator feedback on what keeps a tool supportive instead of flattening identity.</p>
           </article>
-          <article class="info-card interactive-card reveal">
+          <article class="nt-card interactive-card reveal">
             <h3>Test creative feedback tools</h3>
             <p>Explore how vibe checks and identity reflections land before the platform reaches a wider audience.</p>
           </article>
-          <article class="info-card interactive-card reveal">
+          <article class="nt-card interactive-card reveal">
             <h3>Shape a platform built with creators</h3>
             <p>This is a chance to influence the tone, trust, and emotional experience from the ground up.</p>
           </article>
         </div>
       </section>
 
-      <section class="section split-section" id="testing-focus">
-        <div class="section-heading reveal">
+      <section class="nt-section" id="testing">
+        <div class="nt-section-heading reveal">
           <p class="eyebrow">What We’re Testing</p>
-          <h2>The focus is not control. It is clarity, trust, and creative reflection.</h2>
+          <h2>The focus is clarity, trust, comfort, and creative reflection.</h2>
           <p>
             Right now we are learning what early NovaTone interactions feel like
             from the artist side, not just what they do on paper.
           </p>
         </div>
 
-        <div class="feature-panel interactive-card reveal">
-          <ul class="feature-list">
-            <li>Beat and demo upload experience</li>
-            <li>Vibe check feedback that feels emotionally intelligent</li>
-            <li>Creative identity insights that stay respectful</li>
-            <li>Producer signature discovery without forcing sameness</li>
-            <li>Artist trust, comfort, and sense of safety</li>
-            <li>What feedback feels helpful versus controlling</li>
-          </ul>
+        <div class="nt-grid two-up">
+          <article class="nt-card interactive-card reveal">
+            <ul>
+              <li>Beat and demo upload experience</li>
+              <li>Vibe check feedback and emotional tone</li>
+              <li>Creative identity insights that stay respectful</li>
+            </ul>
+          </article>
+          <article class="nt-card interactive-card reveal">
+            <ul>
+              <li>Producer signature discovery without forcing sameness</li>
+              <li>Artist trust, comfort, and sense of safety</li>
+              <li>What feedback feels helpful versus controlling</li>
+            </ul>
+          </article>
         </div>
       </section>
 
-      <section class="section apply-section" id="apply">
-        <div class="section-heading reveal">
-          <p class="eyebrow">Apply</p>
+      <section class="nt-section" id="apply">
+        <div class="nt-section-heading reveal">
+          <p class="eyebrow">Application</p>
           <h2>Tell us about your creative world.</h2>
           <p>
-            This is an early artist application, not a cold beta signup. We want
-            to understand how you create, what kind of feedback supports you, and
-            what makes a platform feel worthy of your trust.
+            This is an early artist application, not a generic beta form. We
+            want to understand how you create, what kind of feedback supports
+            you, and what would make NovaTone worthy of your trust.
           </p>
         </div>
 
-        <div class="application-card interactive-card reveal">
-          <form class="application-form" id="application-form" novalidate>
-            <div class="form-section">
-              <p class="form-section-label">Basic Info</p>
-              <div class="form-grid two-up">
-                <label class="field">
-                  <span>Artist / Creator Name</span>
-                  <input id="creator-name" name="creatorName" type="text" required>
-                </label>
-                <label class="field">
-                  <span>Email</span>
-                  <input id="email" name="email" type="email" required>
-                </label>
-                <label class="field">
-                  <span>City / State</span>
-                  <input id="location" name="location" type="text" required>
-                </label>
-                <label class="field">
-                  <span>Creator Type</span>
-                  <select id="creator-type" name="creatorType" required>
-                    <option value="">Select one</option>
-                    <option value="Singer">Singer</option>
-                    <option value="Rapper">Rapper</option>
-                    <option value="Producer">Producer</option>
-                    <option value="Beat Maker">Beat Maker</option>
-                    <option value="Engineer">Engineer</option>
-                    <option value="Songwriter">Songwriter</option>
-                    <option value="DJ">DJ</option>
-                    <option value="Other">Other</option>
-                  </select>
-                </label>
+        <div class="nt-form-shell reveal">
+          <form id="application-form" novalidate>
+            <div class="nt-form-grid">
+              <label class="nt-field">
+                <span>Artist / Creator Name</span>
+                <input id="creator-name" name="creatorName" type="text" required>
+              </label>
+              <label class="nt-field">
+                <span>Email</span>
+                <input id="email" name="email" type="email" required>
+              </label>
+              <label class="nt-field">
+                <span>City / State</span>
+                <input id="location" name="location" type="text" required>
+              </label>
+              <label class="nt-field">
+                <span>Creator Type</span>
+                <select id="creator-type" name="creatorType" required>
+                  <option value="">Select one</option>
+                  <option value="Singer">Singer</option>
+                  <option value="Rapper">Rapper</option>
+                  <option value="Producer">Producer</option>
+                  <option value="Beat Maker">Beat Maker</option>
+                  <option value="Engineer">Engineer</option>
+                  <option value="Songwriter">Songwriter</option>
+                  <option value="DJ">DJ</option>
+                  <option value="Other">Other</option>
+                </select>
+              </label>
+
+              <label class="nt-field">
+                <span>How long have you been creating music?</span>
+                <input id="experience" name="experience" type="text" required>
+              </label>
+              <label class="nt-field">
+                <span>What type of music do you create?</span>
+                <input id="music-type" name="musicType" type="text" required>
+              </label>
+              <label class="nt-field is-full">
+                <span>Link to SoundCloud, YouTube, TikTok, Spotify, or portfolio</span>
+                <input id="portfolio-link" name="portfolioLink" type="url" placeholder="https://">
+              </label>
+            </div>
+
+            <div class="nt-field nt-form-block">
+              <span>Are you open to sharing an unfinished beat/demo for testing?</span>
+              <div class="option-row" id="demo-sharing">
+                <button class="option-pill is-selected" data-value="Yes" type="button">Yes</button>
+                <button class="option-pill" data-value="Maybe" type="button">Maybe</button>
+                <button class="option-pill" data-value="No" type="button">No</button>
               </div>
             </div>
 
-            <div class="form-section">
-              <p class="form-section-label">Creative Background</p>
-              <div class="form-grid two-up">
-                <label class="field">
-                  <span>How long have you been creating music?</span>
-                  <input id="experience" name="experience" type="text" required>
-                </label>
-                <label class="field">
-                  <span>What type of music do you create?</span>
-                  <input id="music-type" name="musicType" type="text" required>
-                </label>
-                <label class="field field-wide">
-                  <span>Link to SoundCloud, YouTube, TikTok, Spotify, or portfolio</span>
-                  <input id="portfolio-link" name="portfolioLink" type="url" placeholder="https://">
-                </label>
-              </div>
-              <div class="field">
-                <span>Are you open to sharing an unfinished beat/demo for testing?</span>
-                <div class="option-row" id="demo-sharing">
-                  <button class="option-pill is-selected" data-value="Yes" type="button">Yes</button>
-                  <button class="option-pill" data-value="Maybe" type="button">Maybe</button>
-                  <button class="option-pill" data-value="No" type="button">No</button>
-                </div>
-              </div>
-            </div>
-
-            <div class="form-section">
-              <p class="form-section-label">Creative Identity Questions</p>
-              <label class="field">
+            <div class="nt-form-grid nt-form-block">
+              <label class="nt-field is-full">
                 <span>What makes your sound feel like you?</span>
                 <textarea id="identity" name="identity" rows="4" required></textarea>
               </label>
-              <label class="field">
+              <label class="nt-field is-full">
                 <span>What kind of feedback actually helps you improve?</span>
                 <textarea id="helpful-feedback" name="helpfulFeedback" rows="4" required></textarea>
               </label>
-              <label class="field">
+              <label class="nt-field is-full">
                 <span>What kind of feedback makes you feel judged or creatively boxed in?</span>
                 <textarea id="harmful-feedback" name="harmfulFeedback" rows="4" required></textarea>
               </label>
-              <label class="field">
+              <label class="nt-field is-full">
                 <span>What concerns do you have about AI in music?</span>
                 <textarea id="ai-concerns" name="aiConcerns" rows="4" required></textarea>
               </label>
-              <label class="field">
+              <label class="nt-field is-full">
                 <span>What would make NovaTone feel trustworthy?</span>
                 <textarea id="trust" name="trust" rows="4" required></textarea>
               </label>
@@ -240,18 +225,16 @@
 
             <div class="form-feedback" id="form-feedback" aria-live="polite"></div>
 
-            <div class="form-actions">
+            <div class="nt-form-actions">
               <button class="button button-primary" type="submit">Submit Artist Test Application</button>
             </div>
           </form>
 
-          <div class="success-panel" id="success-panel">
+          <div class="nt-success-panel" id="success-panel">
             <p class="eyebrow">Application Received</p>
             <h3>Thank you for helping shape NovaTone.</h3>
-            <p>
-              Your voice matters in building artist-first creative technology.
-            </p>
-            <p class="success-next-step">
+            <p>Your voice matters in building artist-first creative technology.</p>
+            <p class="nt-success-next">
               Next step: We’ll review early tester responses and invite selected
               creators into a feedback session.
             </p>
@@ -259,58 +242,63 @@
         </div>
       </section>
 
-      <section class="section" id="creator-promise">
-        <div class="section-heading reveal">
+      <section class="nt-section" id="creator-promise">
+        <div class="nt-section-heading reveal">
           <p class="eyebrow">Creator Promise</p>
           <h2>Built with artists, not over artists.</h2>
         </div>
 
-        <div class="card-grid four-up">
-          <article class="promise-card interactive-card reveal">
+        <div class="nt-grid two-up">
+          <article class="nt-card interactive-card reveal">
             <h3>Your creativity stays yours</h3>
             <p>The work, the ideas, and the identity behind them remain rooted in the creator.</p>
           </article>
-          <article class="promise-card interactive-card reveal">
+          <article class="nt-card interactive-card reveal">
             <h3>Suggestions never replace your voice</h3>
             <p>Feedback should help you hear more clearly, not pull you away from what makes the work yours.</p>
           </article>
-          <article class="promise-card interactive-card reveal">
+          <article class="nt-card interactive-card reveal">
             <h3>No forced formulas</h3>
             <p>We are not trying to push every artist toward one polished sound or one safe direction.</p>
           </article>
-          <article class="promise-card interactive-card reveal">
+          <article class="nt-card interactive-card reveal">
             <h3>Originality comes first</h3>
             <p>The platform should reward creative identity, not erase it.</p>
           </article>
         </div>
       </section>
 
-      <section class="section interview-section">
-        <div class="section-heading reveal">
-          <p class="eyebrow">Interview Prep</p>
-          <h2>What we may ask during testing</h2>
-        </div>
-
-        <div class="feature-panel interactive-card reveal">
-          <ul class="feature-list">
-            <li>What makes a platform feel safe for your creativity?</li>
-            <li>When does feedback help you versus shut you down?</li>
-            <li>What would make a vibe analysis feel accurate?</li>
-            <li>How do you know when a beat or song feels like you?</li>
-            <li>What would make you trust or reject creative technology?</li>
-          </ul>
+      <section class="nt-section">
+        <div class="nt-card interactive-card reveal">
+          <div class="nt-kicker">What We May Ask During Testing</div>
+          <div class="nt-grid two-up">
+            <div class="nt-interview-column">
+              <p>What makes a platform feel safe for your creativity?</p>
+              <p>When does feedback help you versus shut you down?</p>
+              <p>What would make a vibe analysis feel accurate?</p>
+            </div>
+            <div class="nt-interview-column">
+              <p>How do you know when a beat or song feels like you?</p>
+              <p>What would make you trust or reject creative technology?</p>
+            </div>
+          </div>
         </div>
       </section>
     </main>
 
-    <footer class="site-footer">
-      <p class="footer-brand">NovaTone</p>
-      <p>Creative Identity Intelligence</p>
-      <p>Built by Parker Tech Labs</p>
-      <p>Every artist deserves to sound like themselves.</p>
+    <footer class="nt-footer">
+      <div class="footer-lockup">
+        <img src="assets/novatone-mark.svg" alt="">
+        <div class="footer-copy">
+          <p class="footer-brand">NovaTone</p>
+          <p class="footer-tagline">Creative Identity Intelligence</p>
+          <p class="footer-meta">Built by Parker Tech Labs</p>
+        </div>
+      </div>
+      <p class="footer-note">Every artist deserves to sound like themselves.</p>
     </footer>
   </div>
 
-  <script src="js/early-access.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>

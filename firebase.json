@@ -9,6 +9,14 @@
     "public": ".",
     "ignore": [
       "firebase.json",
+      ".firebaserc",
+      "firestore.rules",
+      "firestore.indexes.json",
+      "README.md",
+      ".firebase/**",
+      "**/*.log",
+      "**/package.json",
+      "**/package-lock.json",
       "**/.*",
       "**/node_modules/**"
     ]

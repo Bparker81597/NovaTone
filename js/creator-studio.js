@@ -1,5 +1,11 @@
 import { generateAnalysis } from "./feedback-engine.js";
 import { mountWaveform, startWaveAnimation, updateWaveformSeed } from "./waveform.js";
+import {
+  isFirebaseReady,
+  createCreatorStudioSession,
+  initFirebaseAnalytics,
+  saveCreatorStudioFeedback,
+} from "./firebase-client.js";
 
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
@@ -49,6 +55,7 @@ const studioState = {
   selectedMoods: ["cinematic"],
   stage: "unfinished",
   latestAnalysis: null,
+  sessionId: null,
 };
 
 function closeMenu() {
@@ -144,6 +151,8 @@ function resetAnalysisViews() {
   feedbackSection?.classList.remove("is-visible");
   loadingPanel?.classList.remove("is-visible");
   feedbackNote.textContent = "";
+  studioState.latestAnalysis = null;
+  studioState.sessionId = null;
 }
 
 function handleFile(file) {
@@ -268,7 +277,9 @@ function renderAnalysis(result) {
 
   analysisPanel.classList.add("is-visible");
   feedbackSection?.classList.add("is-visible");
-  feedbackNote.textContent = result.accuracyPrompt;
+  feedbackNote.textContent = isFirebaseReady()
+    ? `${result.accuracyPrompt} This session is now being captured for live testing.`
+    : `${result.accuracyPrompt} Add Firebase config to start saving live test sessions.`;
 }
 
 function runAnalysisSequence() {
@@ -285,11 +296,30 @@ function runAnalysisSequence() {
     loadingText.textContent = loadingMessages[phraseIndex];
   }, 720);
 
-  window.setTimeout(() => {
+  window.setTimeout(async () => {
     window.clearInterval(phraseTimer);
     const result = generateAnalysis(payload);
     console.log("NovaTone creator studio analysis input:", payload);
     console.log("NovaTone creator studio analysis output:", result);
+
+    if (isFirebaseReady()) {
+      try {
+        studioState.sessionId = await createCreatorStudioSession({
+          audio: {
+            fileName: studioState.uploadedFile?.name || null,
+            fileSize: studioState.uploadedFile?.size || null,
+            mimeType: studioState.uploadedFile?.type || null,
+          },
+          creativeIntent: payload,
+          analysis: result,
+          status: "analysis_generated",
+        });
+      } catch (error) {
+        console.error("NovaTone creator studio session save error:", error);
+        studioState.sessionId = null;
+      }
+    }
+
     renderAnalysis(result);
     loadingPanel?.classList.remove("is-visible");
     analyzeButton.disabled = false;
@@ -319,7 +349,7 @@ function initFeedbackResponse() {
     });
   });
 
-  submitFeedbackButton?.addEventListener("click", () => {
+  submitFeedbackButton?.addEventListener("click", async () => {
     if (!studioState.latestAnalysis) {
       feedbackNote.textContent = "Run an analysis first so you can respond to something real.";
       return;
@@ -341,8 +371,24 @@ function initFeedbackResponse() {
       return;
     }
 
-    console.log("NovaTone creator studio feedback:", payload);
-    feedbackNote.textContent = "Studio feedback captured. This is the layer that helps NovaTone become more artist-aware.";
+    if (!isFirebaseReady()) {
+      console.log("NovaTone creator studio feedback (local-only):", payload);
+      feedbackNote.textContent = "Firebase is not configured yet, so this feedback was logged locally only.";
+      return;
+    }
+
+    try {
+      const feedbackId = await saveCreatorStudioFeedback(studioState.sessionId, payload);
+      console.log("NovaTone creator studio feedback saved:", {
+        feedbackId,
+        sessionId: studioState.sessionId,
+        payload,
+      });
+      feedbackNote.textContent = "Studio feedback saved to Firebase. The real testing loop is now collecting live responses.";
+    } catch (error) {
+      console.error("NovaTone creator studio feedback save error:", error);
+      feedbackNote.textContent = "The studio feedback could not be saved right now. Check the Firebase config and Firestore rules, then try again.";
+    }
   });
 }
 
@@ -367,6 +413,7 @@ function initSmoothScroll() {
 }
 
 function init() {
+  initFirebaseAnalytics();
   initMenu();
   initReveal();
   initSmoothScroll();

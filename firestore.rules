@@ -1,18 +1,213 @@
-rules_version='2'
+rules_version = '2';
 
 service cloud.firestore {
   match /databases/{database}/documents {
+    function isShortString(value, max) {
+      return value is string && value.size() > 0 && value.size() <= max;
+    }
+
+    function isOptionalString(value, max) {
+      return value is string && value.size() <= max;
+    }
+
+    function isNumeric(value) {
+      return value is int || value is float;
+    }
+
+    function isValidCreatorType(value) {
+      return value in [
+        'Singer',
+        'Rapper',
+        'Producer',
+        'Beat Maker',
+        'Engineer',
+        'Songwriter',
+        'DJ',
+        'Other'
+      ];
+    }
+
+    function isValidStudioMood(value) {
+      return value in [
+        'cinematic',
+        'soulful',
+        'nostalgic',
+        'dark',
+        'uplifting',
+        'dreamy',
+        'experimental',
+        'atmospheric',
+        'aggressive'
+      ];
+    }
+
+    function isValidStudioStage(value) {
+      return value in ['unfinished', 'experimental', 'polished', 'rough idea'];
+    }
+
+    function isValidAccuracy(value) {
+      return value in ['Very Accurate', 'Somewhat Accurate', 'Missed the Mark'];
+    }
+
+    function isValidYesNo(value) {
+      return value in ['Yes', 'No'];
+    }
+
+    function isValidEarlyAccessApplication(data) {
+      return data.keys().hasOnly([
+          'creatorName',
+          'email',
+          'location',
+          'creatorType',
+          'experience',
+          'musicType',
+          'portfolioLink',
+          'demoSharing',
+          'identity',
+          'helpfulFeedback',
+          'harmfulFeedback',
+          'aiConcerns',
+          'trust',
+          'consent',
+          'source',
+          'submittedAt'
+        ]) &&
+        isShortString(data.creatorName, 120) &&
+        isShortString(data.email, 160) &&
+        isShortString(data.location, 120) &&
+        isValidCreatorType(data.creatorType) &&
+        isShortString(data.experience, 120) &&
+        isShortString(data.musicType, 160) &&
+        isOptionalString(data.portfolioLink, 300) &&
+        (data.demoSharing in ['Yes', 'Maybe', 'No']) &&
+        isShortString(data.identity, 3000) &&
+        isShortString(data.helpfulFeedback, 3000) &&
+        isShortString(data.harmfulFeedback, 3000) &&
+        isShortString(data.aiConcerns, 3000) &&
+        isShortString(data.trust, 3000) &&
+        data.consent == true &&
+        data.source == 'early-access-page' &&
+        data.submittedAt == request.time;
+    }
+
+    function isValidStudioIntent(data) {
+      return data is map &&
+        data.keys().hasOnly([
+          'inspiration',
+          'identity',
+          'inspirations',
+          'selectedMoods',
+          'primaryMood',
+          'stage',
+          'fileName'
+        ]) &&
+        isOptionalString(data.inspiration, 3000) &&
+        isOptionalString(data.identity, 3000) &&
+        isOptionalString(data.inspirations, 2000) &&
+        data.selectedMoods is list &&
+        data.selectedMoods.size() >= 1 &&
+        data.selectedMoods.size() <= 9 &&
+        isValidStudioMood(data.primaryMood) &&
+        isValidStudioStage(data.stage) &&
+        isShortString(data.fileName, 240);
+    }
+
+    function isValidStudioAudio(data) {
+      return data is map &&
+        data.keys().hasOnly(['fileName', 'fileSize', 'mimeType']) &&
+        isShortString(data.fileName, 240) &&
+        isNumeric(data.fileSize) &&
+        data.fileSize > 0 &&
+        isShortString(data.mimeType, 120);
+    }
+
+    function isValidStudioAnalysis(data) {
+      return data is map &&
+        data.keys().hasOnly([
+          'vibeSummary',
+          'traits',
+          'arrangementInsight',
+          'identityInsight',
+          'energyCaption',
+          'energyBars',
+          'accuracyPrompt'
+        ]) &&
+        data.vibeSummary is list &&
+        data.vibeSummary.size() >= 1 &&
+        data.vibeSummary.size() <= 6 &&
+        data.traits is list &&
+        data.traits.size() >= 1 &&
+        data.traits.size() <= 10 &&
+        isShortString(data.arrangementInsight, 3000) &&
+        isShortString(data.identityInsight, 3000) &&
+        isShortString(data.energyCaption, 600) &&
+        data.energyBars is list &&
+        data.energyBars.size() >= 1 &&
+        data.energyBars.size() <= 20 &&
+        isShortString(data.accuracyPrompt, 600);
+    }
+
+    function isValidStudioSession(data) {
+      return data.keys().hasOnly([
+          'audio',
+          'creativeIntent',
+          'analysis',
+          'status',
+          'source',
+          'createdAt'
+        ]) &&
+        isValidStudioAudio(data.audio) &&
+        isValidStudioIntent(data.creativeIntent) &&
+        isValidStudioAnalysis(data.analysis) &&
+        data.status == 'analysis_generated' &&
+        data.source == 'creator-studio' &&
+        data.createdAt == request.time;
+    }
+
+    function isValidStudioFeedback(data, sessionId) {
+      return data.keys().hasOnly([
+          'analysisMood',
+          'accuracy',
+          'inspiredNewIdeas',
+          'helpfulAreas',
+          'whatFeltOff',
+          'analysisSnapshot',
+          'sessionId',
+          'submittedAt'
+        ]) &&
+        isValidStudioMood(data.analysisMood) &&
+        isValidAccuracy(data.accuracy) &&
+        isValidYesNo(data.inspiredNewIdeas) &&
+        data.helpfulAreas is list &&
+        data.helpfulAreas.size() <= 5 &&
+        isOptionalString(data.whatFeltOff, 3000) &&
+        isValidStudioAnalysis(data.analysisSnapshot) &&
+        data.sessionId == sessionId &&
+        data.submittedAt == request.time;
+    }
+
+    match /earlyAccessApplications/{applicationId} {
+      allow create: if isValidEarlyAccessApplication(request.resource.data);
+      allow read, update, delete: if false;
+    }
+
+    match /creatorStudioSessions/{sessionId} {
+      allow create: if isValidStudioSession(request.resource.data);
+      allow read, update, delete: if false;
+
+      match /feedbackResponses/{feedbackId} {
+        allow create: if isValidStudioFeedback(request.resource.data, sessionId);
+        allow read, update, delete: if false;
+      }
+    }
+
+    match /creatorStudioFeedback/{feedbackId} {
+      allow create: if false;
+      allow read, update, delete: if false;
+    }
+
     match /{document=**} {
-      // This rule allows anyone with your database reference to view, edit,
-      // and delete all data in your database. It is useful for getting
-      // started, but it is configured to expire after 30 days because it
-      // leaves your app open to attackers. At that time, all client
-      // requests to your database will be denied.
-      //
-      // Make sure to write security rules for your app before that time, or
-      // else all client requests to your database will be denied until you
-      // update your rules.
-      allow read, write: if request.time < timestamp.date(2026, 6, 9);
+      allow read, write: if false;
     }
   }
 }

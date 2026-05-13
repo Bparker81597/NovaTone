@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NovaTone Creator Studio analytics with growth tracking, identity consistency, and audience resonance.">
+  <title>NovaTone | Studio Analytics</title>
+  <link rel="icon" type="image/png" href="assets/branding/novatone-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/studio-dashboard.css">
+</head>
+<body>
+  <div class="page-shell">
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+    <div class="grid-glow"></div>
+    <div class="ambient-lines"></div>
+
+    <div class="studio-app">
+      <aside class="studio-sidebar" data-studio-sidebar>
+        <div class="studio-sidebar-head">
+          <p class="studio-sidebar-kicker">Creator Studio</p>
+          <h1 class="studio-brand-word"><a href="creator-studio.html">NovaTone</a></h1>
+          <p class="studio-muted">Analytics now has its own surface instead of being mixed into upload flow.</p>
+        </div>
+        <nav class="studio-sidebar-nav">
+          <a class="studio-nav-link" href="creator-studio.html"><span class="material-symbols-outlined">dashboard</span><span>Dashboard</span></a>
+          <a class="studio-nav-link" href="creator-studio-library.html"><span class="material-symbols-outlined">subscriptions</span><span>Library</span></a>
+          <a class="studio-nav-link is-active" href="creator-studio-analytics.html" aria-current="page"><span class="material-symbols-outlined">equalizer</span><span>Analytics</span></a>
+          <a class="studio-nav-link" href="creator-studio-settings.html"><span class="material-symbols-outlined">settings</span><span>Settings</span></a>
+        </nav>
+      </aside>
+
+      <main class="studio-main">
+        <section class="studio-topbar">
+          <button class="studio-outline-button studio-mobile-toggle" type="button" data-studio-toggle>
+            <span class="material-symbols-outlined">menu</span><span>Menu</span>
+          </button>
+          <div class="studio-topbar-actions">
+            <span class="studio-chip">Last 30 Days</span>
+            <a class="studio-pill-button" href="creator-studio-library.html">Back to Assets</a>
+          </div>
+        </section>
+
+        <section class="studio-page-head">
+          <div class="studio-head-copy">
+            <p class="studio-eyebrow">Performance Pulse</p>
+            <h1>Real-time sonic metrics</h1>
+            <p>Stream volume, AI engagement, audience resonance, and identity consistency now live on a dedicated page.</p>
+          </div>
+        </section>
+
+        <section class="studio-metrics">
+          <article class="studio-stat"><p class="studio-mini-label">Total Reproductions</p><p class="studio-big-number">1.2M</p><div class="studio-progress"><span data-progress="75"></span></div></article>
+          <article class="studio-stat"><p class="studio-mini-label">Identity Match Avg</p><p class="studio-big-number">94.8%</p><div class="studio-progress"><span data-progress="95"></span></div></article>
+          <article class="studio-stat"><p class="studio-mini-label">Global Reach</p><p class="studio-big-number">84</p><div class="studio-progress"><span data-progress="65"></span></div></article>
+          <article class="studio-stat"><p class="studio-mini-label">Monthly Revenue</p><p class="studio-big-number">$14.2K</p><div class="studio-progress"><span data-progress="57"></span></div></article>
+        </section>
+
+        <section class="studio-analytics-grid">
+          <article class="studio-panel studio-chart-card">
+            <div class="studio-panel-head">
+              <div class="studio-panel-copy">
+                <p class="studio-card-kicker">Sonic Growth</p>
+                <h3>Streams vs AI usage</h3>
+              </div>
+              <div class="studio-chip-row"><span class="studio-chip">Streams</span><span class="studio-chip">AI Usage</span></div>
+            </div>
+            <div class="studio-line-chart">
+              <svg viewBox="0 0 800 400" preserveAspectRatio="none" aria-hidden="true">
+                <defs>
+                  <linearGradient id="analyticsPrimary" x1="0%" x2="0%" y1="0%" y2="100%">
+                    <stop offset="0%" stop-color="#e6b4ff" stop-opacity="0.45"></stop>
+                    <stop offset="100%" stop-color="#e6b4ff" stop-opacity="0"></stop>
+                  </linearGradient>
+                  <linearGradient id="analyticsSecondary" x1="0%" x2="0%" y1="0%" y2="100%">
+                    <stop offset="0%" stop-color="#00d8ff" stop-opacity="0.35"></stop>
+                    <stop offset="100%" stop-color="#00d8ff" stop-opacity="0"></stop>
+                  </linearGradient>
+                </defs>
+                <path d="M0,400 L0,320 C100,280 150,350 250,220 C350,90 450,280 550,150 C650,20 750,180 800,100 L800,400 Z" fill="url(#analyticsPrimary)"></path>
+                <path d="M0,320 C100,280 150,350 250,220 C350,90 450,280 550,150 C650,20 750,180 800,100" fill="none" stroke="#e6b4ff" stroke-width="4" stroke-linecap="round"></path>
+                <path d="M0,400 L0,360 C100,340 200,380 300,300 C400,220 500,260 600,200 C700,140 800,180 800,180 L800,400 Z" fill="url(#analyticsSecondary)"></path>
+                <path d="M0,360 C100,340 200,380 300,300 C400,220 500,260 600,200 C700,140 800,180 800,180" fill="none" stroke="#00d8ff" stroke-width="2" stroke-dasharray="8 4" stroke-linecap="round"></path>
+              </svg>
+            </div>
+            <div class="studio-line-axis"><span>Jan</span><span>Feb</span><span>Mar</span><span>Apr</span><span>May</span><span>Jun</span><span>Jul</span></div>
+          </article>
+
+          <div class="studio-side-stack">
+            <article class="studio-panel">
+              <div class="studio-panel-copy">
+                <p class="studio-card-kicker">Identity Consistency</p>
+                <h3>A+</h3>
+                <p>Your sound profile remains 92% consistent with the core aesthetic.</p>
+              </div>
+              <div class="studio-radar">
+                <svg viewBox="0 0 100 100" aria-hidden="true">
+                  <polygon points="50,10 90,40 75,90 25,90 10,40" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="0.8"></polygon>
+                  <polygon points="50,25 80,48 68,85 32,85 20,48" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.8"></polygon>
+                  <polygon points="50,40 70,55 62,80 38,80 30,55" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="0.8"></polygon>
+                  <polygon points="50,15 85,38 70,82 40,88 15,45" fill="rgba(230,180,255,0.18)" stroke="#e6b4ff" stroke-width="2"></polygon>
+                </svg>
+              </div>
+            </article>
+
+            <article class="studio-panel">
+              <div class="studio-panel-copy">
+                <p class="studio-card-kicker">Audience Resonance</p>
+                <h3>Peak Engagement</h3>
+              </div>
+              <div class="studio-heatmap" aria-hidden="true">
+                <span></span><span style="background: rgba(230,180,255,0.28)"></span><span style="background: rgba(230,180,255,0.42)"></span><span style="background: rgba(230,180,255,0.72)"></span><span style="background: rgba(230,180,255,0.5)"></span><span style="background: rgba(230,180,255,0.22)"></span><span></span>
+                <span style="background: rgba(230,180,255,0.18)"></span><span style="background: rgba(230,180,255,0.4)"></span><span style="background: rgba(230,180,255,0.66)"></span><span style="background: rgba(230,180,255,0.88)"></span><span style="background: rgba(230,180,255,0.64)"></span><span style="background: rgba(230,180,255,0.4)"></span><span style="background: rgba(230,180,255,0.18)"></span>
+                <span style="background: rgba(0,216,255,0.28)"></span><span style="background: rgba(0,216,255,0.42)"></span><span style="background: rgba(0,216,255,0.82)"></span><span style="background: rgba(0,216,255,0.66)"></span><span style="background: rgba(0,216,255,0.52)"></span><span style="background: rgba(230,180,255,0.4)"></span><span style="background: rgba(230,180,255,0.28)"></span>
+                <span style="background: rgba(230,180,255,0.18)"></span><span style="background: rgba(230,180,255,0.36)"></span><span style="background: rgba(230,180,255,0.5)"></span><span style="background: rgba(230,180,255,0.64)"></span><span style="background: rgba(230,180,255,0.5)"></span><span style="background: rgba(230,180,255,0.34)"></span><span style="background: rgba(230,180,255,0.18)"></span>
+                <span></span><span style="background: rgba(230,180,255,0.2)"></span><span style="background: rgba(230,180,255,0.32)"></span><span style="background: rgba(230,180,255,0.5)"></span><span style="background: rgba(230,180,255,0.32)"></span><span style="background: rgba(230,180,255,0.18)"></span><span></span>
+              </div>
+              <div class="studio-line-axis"><span>Morning</span><span>Peak 9PM</span><span>Late</span></div>
+            </article>
+          </div>
+        </section>
+
+        <section class="studio-panel">
+          <div class="studio-panel-head">
+            <div class="studio-panel-copy"><p class="studio-card-kicker">Top Revisions</p><h3>Most resonant tracks this cycle</h3></div>
+          </div>
+          <div class="studio-table">
+            <div class="studio-table-row">
+              <div class="studio-table-main">
+                <div class="studio-icon-tile"><span class="material-symbols-outlined">audiotrack</span></div>
+                <div class="studio-table-copy"><h3>Neon Horizon [Extended Mix]</h3><p>Synthwave / Cyberpunk</p></div>
+              </div>
+              <div class="studio-table-stats"><strong>452K Plays</strong><strong>98.2% Match</strong></div>
+            </div>
+            <div class="studio-table-row">
+              <div class="studio-table-main">
+                <div class="studio-icon-tile"><span class="material-symbols-outlined">graphic_eq</span></div>
+                <div class="studio-table-copy"><h3>Liquid Architecture v2.4</h3><p>Experimental / Ambient</p></div>
+              </div>
+              <div class="studio-table-stats"><strong>218K Plays</strong><strong>91.5% Match</strong></div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <footer class="studio-footer">
+      <div><p class="studio-card-kicker">NovaTone</p><p>Analytics is separated cleanly so new metrics can be layered without crowding the dashboard.</p></div>
+      <div class="studio-footer-links"><a href="creator-studio.html">Dashboard</a><a href="creator-studio-settings.html">Settings</a></div>
+    </footer>
+  </div>
+
+  <script src="js/studio-dashboard.js"></script>
+</body>
+</html>

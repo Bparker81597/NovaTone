@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NovaTone Creator Studio settings for account security, billing, routing, and real-time processing preferences.">
+  <title>NovaTone | Studio Settings</title>
+  <link rel="icon" type="image/png" href="assets/branding/novatone-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/studio-dashboard.css">
+</head>
+<body>
+  <div class="page-shell">
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+    <div class="grid-glow"></div>
+    <div class="ambient-lines"></div>
+
+    <div class="studio-app">
+      <aside class="studio-sidebar" data-studio-sidebar>
+        <div class="studio-sidebar-head">
+          <p class="studio-sidebar-kicker">Creator Studio</p>
+          <h1 class="studio-brand-word"><a href="creator-studio.html">NovaTone</a></h1>
+          <p class="studio-muted">Routing, toggles, billing, and account security live here instead of in mixed modals.</p>
+        </div>
+        <nav class="studio-sidebar-nav">
+          <a class="studio-nav-link" href="creator-studio.html"><span class="material-symbols-outlined">dashboard</span><span>Dashboard</span></a>
+          <a class="studio-nav-link" href="creator-studio-library.html"><span class="material-symbols-outlined">subscriptions</span><span>Library</span></a>
+          <a class="studio-nav-link" href="creator-studio-analytics.html"><span class="material-symbols-outlined">equalizer</span><span>Analytics</span></a>
+          <a class="studio-nav-link is-active" href="creator-studio-settings.html" aria-current="page"><span class="material-symbols-outlined">settings</span><span>Settings</span></a>
+        </nav>
+      </aside>
+
+      <main class="studio-main">
+        <section class="studio-topbar">
+          <button class="studio-outline-button studio-mobile-toggle" type="button" data-studio-toggle>
+            <span class="material-symbols-outlined">menu</span><span>Menu</span>
+          </button>
+          <div class="studio-topbar-actions">
+            <a class="studio-outline-button" href="creator-studio-profile.html">Profile</a>
+            <a class="studio-pill-button" href="creator-studio-lab.html">Go Live</a>
+          </div>
+        </section>
+
+        <section class="studio-page-head">
+          <div class="studio-head-copy">
+            <p class="studio-eyebrow">Studio Settings</p>
+            <h1>Configure the acoustic environment</h1>
+            <p>Account settings, billing, routing, and AI behavior now have their own page-level hierarchy.</p>
+          </div>
+        </section>
+
+        <section class="studio-settings-grid">
+          <article class="studio-panel">
+            <div class="studio-panel-copy">
+              <p class="studio-card-kicker">Account Security</p>
+              <h3>Identity and access</h3>
+            </div>
+            <div class="studio-settings-list">
+              <div class="studio-settings-row"><div><strong>Email Address</strong><p class="studio-muted">producer@novatone.io</p></div></div>
+              <div class="studio-settings-row"><div><strong>Two-Factor Auth</strong><p class="studio-muted">Authenticator app enabled</p></div><span class="studio-chip is-primary">Enabled</span></div>
+              <div class="studio-settings-row"><div><strong>Active Sessions</strong><p class="studio-muted">MacBook Pro, iPhone 15 Pro</p></div></div>
+              <a class="studio-secondary-button" href="creator-studio-profile.html">Update Password</a>
+            </div>
+          </article>
+
+          <article class="studio-billing-card">
+            <div class="studio-panel-copy">
+              <p class="studio-card-kicker">Billing</p>
+              <h3>Pro Studio</h3>
+              <p>Annual plan with full studio shell access.</p>
+            </div>
+            <div class="studio-settings-list">
+              <div class="studio-settings-row"><span>Next renewal</span><strong>Nov 12, 2024</strong></div>
+              <div class="studio-settings-row"><span>Annual total</span><strong>$299.00</strong></div>
+            </div>
+            <div class="studio-inline-actions">
+              <a class="studio-outline-button" href="creator-studio.html">View Invoices</a>
+              <a class="studio-pill-button" href="early-access.html">Manage Plan</a>
+            </div>
+          </article>
+        </section>
+
+        <section class="studio-panel">
+          <div class="studio-panel-head">
+            <div class="studio-panel-copy">
+              <p class="studio-card-kicker">Studio Preferences</p>
+              <h3>Routing and real-time processing</h3>
+            </div>
+            <div class="studio-chip-row">
+              <span class="studio-chip">Latency: 2.4ms</span>
+              <span class="studio-chip is-primary">Engine: v4-stable</span>
+            </div>
+          </div>
+
+          <div class="studio-settings-grid">
+            <div class="studio-settings-list">
+              <div class="studio-settings-row"><div><strong>Audio Input Device</strong><p class="studio-muted">Universal Audio Volt 2</p></div></div>
+              <div class="studio-settings-row"><div><strong>Audio Output Device</strong><p class="studio-muted">Studio Monitors (Volt 2)</p></div></div>
+            </div>
+
+            <div class="studio-settings-list">
+              <div class="studio-settings-row"><div><strong>Ultra-Low Latency</strong><p class="studio-muted">Bypass system buffers for direct DSP</p></div><span class="studio-toggle is-on"></span></div>
+              <div class="studio-settings-row"><div><strong>AI Tone Enhancement</strong><p class="studio-muted">Neural matching on active tracks</p></div><span class="studio-toggle"></span></div>
+            </div>
+          </div>
+
+          <div class="studio-settings-grid">
+            <div>
+              <div class="studio-settings-row"><span>Spectral Analysis</span><strong>82%</strong></div>
+              <div class="studio-slider"><span style="width: 82%"></span></div>
+            </div>
+            <div>
+              <div class="studio-settings-row"><span>Correction Aggression</span><strong>45%</strong></div>
+              <div class="studio-slider"><span style="width: 45%"></span></div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <footer class="studio-footer">
+      <div><p class="studio-card-kicker">NovaTone</p><p>Settings are isolated so later account forms and real backend wiring have a clean landing zone.</p></div>
+      <div class="studio-footer-links"><a href="creator-studio.html">Dashboard</a><a href="creator-studio-profile.html">Profile</a></div>
+    </footer>
+  </div>
+
+  <script src="js/studio-dashboard.js"></script>
+</body>
+</html>

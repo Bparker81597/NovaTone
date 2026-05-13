@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta
+    name="description"
+    content="Use the NovaTone Creator Studio Lab to upload a beat or demo, describe your creative intent, receive identity-aware feedback, and respond to the analysis."
+  >
+  <title>NovaTone | Studio Lab</title>
+  <link rel="icon" type="image/png" href="assets/branding/novatone-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/creator-studio.css">
+</head>
+<body>
+  <div class="page-shell">
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+    <div class="grid-glow"></div>
+    <div class="ambient-lines"></div>
+
+    <header class="nt-header">
+      <div class="nt-header-inner">
+        <a href="index.html" class="nt-brand">
+          <img
+            src="assets/branding/novatone-logo.png"
+            alt="NovaTone logo"
+            class="nt-brand-logo"
+          />
+        </a>
+
+        <button class="nt-menu-toggle" aria-label="Open navigation" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <nav class="nt-nav">
+          <a href="index.html">Home</a>
+          <a href="how-it-works.html">How It Works</a>
+          <a href="artists.html">Artists</a>
+          <a href="producers.html">Producers</a>
+          <a href="early-access.html">Early Access</a>
+          <a href="creator-studio.html">Dashboard</a>
+          <a href="creator-studio-lab.html" class="nt-nav-cta is-active" aria-current="page">Studio Lab</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="nt-page-hero studio-hero">
+        <div class="nt-page-hero-copy reveal">
+          <p class="eyebrow">Studio Lab</p>
+          <h1>Upload ideas and let <span>NovaTone listen</span></h1>
+          <p>
+            This is the working analysis space. Bring in a beat, demo, or unfinished idea
+            and test how NovaTone interprets emotion, pacing, and creative identity.
+          </p>
+        </div>
+
+        <div class="studio-hero-visual reveal" aria-hidden="true">
+          <div class="studio-particles">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="studio-hero-wave" id="studio-hero-wave"></div>
+        </div>
+      </section>
+
+      <section class="nt-section">
+        <div class="studio-shell interactive-card reveal">
+          <div class="studio-column studio-column-form">
+            <div class="studio-block">
+              <div class="studio-heading">
+                <p class="eyebrow">Upload Audio</p>
+                <h2>Start with the sound itself.</h2>
+              </div>
+
+              <label class="studio-dropzone" id="studio-dropzone">
+                <input
+                  id="studio-file-input"
+                  class="studio-file-input"
+                  type="file"
+                  accept=".mp3,.wav,audio/mpeg,audio/wav"
+                >
+                <span class="studio-drop-icon">+</span>
+                <span class="studio-drop-title">Drop your beat, demo, or snippet here</span>
+                <span class="studio-drop-copy">MP3 / WAV support</span>
+                <span class="studio-drop-helper">Finished track or rough idea. Both are welcome.</span>
+              </label>
+
+              <div class="studio-upload-status">
+                <div class="studio-upload-top">
+                  <span>Creative intake</span>
+                  <span id="studio-upload-percent">0%</span>
+                </div>
+                <div class="studio-upload-track">
+                  <div class="studio-upload-fill" id="studio-upload-fill"></div>
+                </div>
+                <p class="studio-upload-note" id="studio-upload-note">
+                  No audio loaded yet. NovaTone will begin by listening for mood, pacing, and emotional shape.
+                </p>
+              </div>
+
+              <label class="nt-field studio-form-block">
+                <span>Track title</span>
+                <input id="track-title" type="text" placeholder="Optional. If you leave this open, NovaTone will use the file name.">
+              </label>
+            </div>
+
+            <div class="studio-block">
+              <div class="studio-heading">
+                <p class="eyebrow">Creative Intent</p>
+                <h2>Tell NovaTone what the track is trying to say.</h2>
+              </div>
+
+              <div class="nt-field">
+                <span>What inspired this track?</span>
+                <textarea id="track-inspiration" rows="4" placeholder="A moment, a scene, a memory, a pressure, a late-night drive, or an unfinished feeling."></textarea>
+              </div>
+
+              <div class="nt-field studio-form-block">
+                <span>What emotion or vibe are you aiming for?</span>
+                <div class="studio-tag-grid" id="studio-vibe-grid">
+                  <button class="studio-tag is-selected" data-vibe="cinematic" type="button">cinematic</button>
+                  <button class="studio-tag" data-vibe="soulful" type="button">soulful</button>
+                  <button class="studio-tag" data-vibe="nostalgic" type="button">nostalgic</button>
+                  <button class="studio-tag" data-vibe="dark" type="button">dark</button>
+                  <button class="studio-tag" data-vibe="uplifting" type="button">uplifting</button>
+                  <button class="studio-tag" data-vibe="dreamy" type="button">dreamy</button>
+                  <button class="studio-tag" data-vibe="experimental" type="button">experimental</button>
+                  <button class="studio-tag" data-vibe="atmospheric" type="button">atmospheric</button>
+                  <button class="studio-tag" data-vibe="aggressive" type="button">aggressive</button>
+                </div>
+              </div>
+
+              <div class="nt-field studio-form-block">
+                <span>What makes this feel like YOU?</span>
+                <textarea id="track-identity" rows="4" placeholder="Your pacing, your textures, your bounce, your silence, your tone, your melodic instinct, your emotional angle."></textarea>
+              </div>
+
+              <div class="nt-field studio-form-block">
+                <span>Current stage</span>
+                <div class="option-row" id="track-stage">
+                  <button class="option-pill is-selected" data-value="unfinished" type="button">unfinished</button>
+                  <button class="option-pill" data-value="experimental" type="button">experimental</button>
+                  <button class="option-pill" data-value="polished" type="button">polished</button>
+                  <button class="option-pill" data-value="rough idea" type="button">rough idea</button>
+                </div>
+              </div>
+
+              <div class="nt-field studio-form-block">
+                <span>Whose storytelling or creative energy inspires you?</span>
+                <textarea id="track-inspirations" rows="3" placeholder="Optional. Share a few influences, scenes, or artists that help frame your emotional direction."></textarea>
+              </div>
+
+              <div class="studio-action-row">
+                <button id="analyze-button" class="studio-analyze-button" type="button">Analyze Creative Identity</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="studio-column studio-column-preview">
+            <div class="studio-preview-top">
+              <div>
+                <p class="eyebrow">Live Waveform</p>
+                <h2>Watch the idea take shape.</h2>
+              </div>
+              <p class="studio-preview-copy">
+                NovaTone starts by listening for emotion, atmosphere, tension, and pacing before it speaks back.
+              </p>
+            </div>
+
+            <div class="studio-wave-panel">
+              <div class="studio-wave-header">
+                <span>Waveform preview</span>
+                <span>subtle motion</span>
+              </div>
+              <div class="studio-preview-wave" id="studio-preview-wave" aria-hidden="true"></div>
+            </div>
+
+            <div class="studio-loading" id="studio-loading" aria-live="polite">
+              <div class="studio-loading-orb"></div>
+              <img src="assets/branding/novatone-logo.png" alt="NovaTone" class="studio-loading-logo">
+              <p class="studio-loading-label">NovaTone is listening to the shape of the idea.</p>
+              <p class="studio-loading-text" id="studio-loading-text">Listening for emotional textures...</p>
+            </div>
+
+            <div class="studio-analysis" id="studio-analysis">
+              <article class="studio-analysis-card">
+                <div class="studio-analysis-head">
+                  <p class="studio-analysis-label">Vibe Summary</p>
+                  <span class="studio-chip">identity-aware</span>
+                </div>
+                <div class="studio-summary-list" id="vibe-summary"></div>
+              </article>
+
+              <article class="studio-analysis-card">
+                <div class="studio-analysis-head">
+                  <p class="studio-analysis-label">Emotional Energy Meter</p>
+                  <span class="studio-chip">live motion</span>
+                </div>
+                <div class="studio-energy-wave" id="studio-energy-wave" aria-hidden="true"></div>
+                <p class="studio-energy-caption" id="studio-energy-caption"></p>
+              </article>
+
+              <article class="studio-analysis-card">
+                <div class="studio-analysis-head">
+                  <p class="studio-analysis-label">Creative Identity Traits</p>
+                  <span class="studio-chip">dynamic tags</span>
+                </div>
+                <div class="studio-traits" id="studio-traits"></div>
+              </article>
+
+              <article class="studio-analysis-card">
+                <div class="studio-analysis-head">
+                  <p class="studio-analysis-label">Arrangement Insight</p>
+                </div>
+                <p id="arrangement-insight"></p>
+              </article>
+
+              <article class="studio-analysis-card">
+                <div class="studio-analysis-head">
+                  <p class="studio-analysis-label">Artist Identity Insight</p>
+                </div>
+                <p id="identity-insight"></p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="nt-section studio-feedback-section" id="feedback-response">
+        <div class="nt-section-heading reveal">
+          <p class="eyebrow">Feedback on Feedback</p>
+          <h2>Help NovaTone learn what actually feels useful.</h2>
+          <p>
+            This part is as important as the analysis itself. It tells NovaTone
+            what landed, what inspired you, and what still missed the emotional
+            truth of the record.
+          </p>
+        </div>
+
+        <div class="nt-card studio-feedback-card reveal" id="studio-feedback-card">
+          <div class="studio-feedback-prompt">
+            <p class="studio-analysis-label">Did this feel accurate?</p>
+            <div class="option-row" id="accuracy-row">
+              <button class="option-pill" data-value="Very Accurate" type="button">Very Accurate</button>
+              <button class="option-pill" data-value="Somewhat Accurate" type="button">Somewhat Accurate</button>
+              <button class="option-pill" data-value="Missed the Mark" type="button">Missed the Mark</button>
+            </div>
+          </div>
+
+          <div class="studio-feedback-prompt">
+            <p class="studio-analysis-label">Did this inspire any new ideas?</p>
+            <div class="option-row" id="inspiration-row">
+              <button class="option-pill" data-value="Yes" type="button">Yes</button>
+              <button class="option-pill" data-value="No" type="button">No</button>
+            </div>
+          </div>
+
+          <div class="studio-feedback-prompt">
+            <p class="studio-analysis-label">What felt most helpful?</p>
+            <div class="studio-tag-grid" id="helpful-tags">
+              <button class="studio-tag" data-helpful="emotional insight" type="button">emotional insight</button>
+              <button class="studio-tag" data-helpful="arrangement feedback" type="button">arrangement feedback</button>
+              <button class="studio-tag" data-helpful="vibe matching" type="button">vibe matching</button>
+              <button class="studio-tag" data-helpful="identity observations" type="button">identity observations</button>
+              <button class="studio-tag" data-helpful="producer insight" type="button">producer insight</button>
+            </div>
+          </div>
+
+          <div class="nt-field studio-form-block">
+            <span>What felt off?</span>
+            <textarea id="feedback-off" rows="4" placeholder="If something felt too broad, too far off, or not emotionally true, say it here."></textarea>
+          </div>
+
+          <div class="studio-feedback-actions">
+            <button id="submit-feedback" class="button button-primary" type="button">Share Studio Feedback</button>
+            <p class="studio-feedback-note" id="studio-feedback-note"></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="nt-section studio-memory-section" id="creative-memory">
+        <div class="nt-section-heading reveal">
+          <p class="eyebrow">Creative Memory</p>
+          <h2>Your saved vibe checks help NovaTone understand how your sound evolves over time.</h2>
+          <p>
+            This is an early pattern view, not a final verdict. It is simply a way
+            to revisit what you have already explored and notice where your sound
+            keeps returning naturally.
+          </p>
+        </div>
+
+        <div class="nt-card studio-memory-summary reveal">
+          <p class="studio-analysis-label">Early Pattern</p>
+          <h3 id="creative-memory-count">No saved sessions yet</h3>
+          <p id="creative-memory-pattern-text">
+            Your Creative Memory starts with your first vibe check.
+          </p>
+        </div>
+
+        <div class="studio-memory-grid" id="creative-memory-history"></div>
+
+        <div class="nt-card studio-memory-empty reveal" id="creative-memory-empty">
+          <p>Your Creative Memory starts with your first vibe check.</p>
+        </div>
+      </section>
+
+      <section class="nt-section">
+        <div class="nt-card interactive-card reveal">
+          <div class="nt-kicker">Creator Philosophy</div>
+          <h3>Built to support creativity, not replace it.</h3>
+          <p>
+            NovaTone is designed to help creators better understand themselves,
+            their sound, and their direction. Suggestions are meant to inspire,
+            not control.
+          </p>
+          <div class="studio-philosophy-tags">
+            <span>originality-first</span>
+            <span>artist-centered</span>
+            <span>identity-aware</span>
+            <span>no forced formulas</span>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="nt-footer">
+      <div class="footer-lockup">
+        <img src="assets/branding/novatone-logo.png" alt="NovaTone" class="nt-footer-logo">
+        <div class="footer-copy">
+          <p class="footer-tagline">Creative Identity Intelligence</p>
+          <p class="footer-meta">Built by Parker Tech Labs</p>
+        </div>
+      </div>
+      <p class="footer-note">Every artist deserves to sound like themselves.</p>
+    </footer>
+  </div>
+
+  <script type="module" src="js/creator-studio.js"></script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NovaTone Creator Studio library for assets, stems, presets, and featured creative tools.">
+  <title>NovaTone | Studio Library</title>
+  <link rel="icon" type="image/png" href="assets/branding/novatone-logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/studio-dashboard.css">
+</head>
+<body>
+  <div class="page-shell">
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+    <div class="grid-glow"></div>
+    <div class="ambient-lines"></div>
+
+    <div class="studio-app">
+      <aside class="studio-sidebar" data-studio-sidebar>
+        <div class="studio-sidebar-head">
+          <p class="studio-sidebar-kicker">Creator Studio</p>
+          <h1 class="studio-brand-word"><a href="creator-studio.html">NovaTone</a></h1>
+          <p class="studio-muted">The library page is your asset shelf, not a generic card dump.</p>
+        </div>
+        <nav class="studio-sidebar-nav">
+          <a class="studio-nav-link" href="creator-studio.html"><span class="material-symbols-outlined">dashboard</span><span>Dashboard</span></a>
+          <a class="studio-nav-link is-active" href="creator-studio-library.html" aria-current="page"><span class="material-symbols-outlined">subscriptions</span><span>Library</span></a>
+          <a class="studio-nav-link" href="creator-studio-analytics.html"><span class="material-symbols-outlined">equalizer</span><span>Analytics</span></a>
+          <a class="studio-nav-link" href="creator-studio-settings.html"><span class="material-symbols-outlined">settings</span><span>Settings</span></a>
+        </nav>
+        <div class="studio-sidebar-foot">
+          <div class="studio-profile-card">
+            <div class="studio-profile-top">
+              <img class="studio-profile-avatar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAREtYqQrY0MpJtskuR3WfzA-NgBud4vsZ6c3wMvgdEbkJc3qd3UkQRoyjAB8Bpt1t3t0j-9jcrHtok2FHKlO1_yY0LYqO0PRDr0FLPksUZVSdn8w0xRXzkSfkekUkkPkbfZCzwvg6k9C7w-K7zllU2hr35bleVI0HzS_LX5HPnGkTyndl165uVXc86ZY6KUncCEKR3gddJGAFTyIvRA659gHmaddIm-uJhyhkgjwqPY-Hec1iIoU6u5z3Gb785EytkX7dfLSs2gOLn" alt="Artist profile avatar">
+              <div class="studio-profile-meta"><h2>Creator Hub</h2><p>Asset layer</p></div>
+            </div>
+            <a class="studio-pill-button" href="creator-studio-lab.html">Upload New Asset</a>
+          </div>
+        </div>
+      </aside>
+
+      <main class="studio-main">
+        <section class="studio-topbar">
+          <button class="studio-outline-button studio-mobile-toggle" type="button" data-studio-toggle>
+            <span class="material-symbols-outlined">menu</span><span>Menu</span>
+          </button>
+          <div class="studio-search">
+            <span class="material-symbols-outlined">search</span>
+            <input type="text" placeholder="Search assets, stems, loops">
+          </div>
+          <div class="studio-topbar-actions">
+            <a class="studio-outline-button" href="creator-studio.html">Back to Dashboard</a>
+            <a class="studio-pill-button" href="creator-studio-lab.html">Upload Asset</a>
+          </div>
+        </section>
+
+        <section class="studio-page-head">
+          <div class="studio-head-copy">
+            <p class="studio-eyebrow">Library</p>
+            <h1>Manage your sonic DNA</h1>
+            <p>Organize stems, loops, presets, and featured AI tools in a way that keeps navigation clean and expandable.</p>
+          </div>
+        </section>
+
+        <section class="studio-filter-row">
+          <span class="studio-filter-chip is-active">All Assets</span>
+          <span class="studio-filter-chip">Vocal Stems</span>
+          <span class="studio-filter-chip">Atmospheric Loops</span>
+          <span class="studio-filter-chip">Neural Presets</span>
+        </section>
+
+        <section class="studio-library-grid">
+          <article class="studio-panel studio-library-card">
+            <div class="studio-icon-tile"><span class="material-symbols-outlined">keyboard_voice</span></div>
+            <h3>Ethereal Harmony Stem</h3>
+            <p>A high-fidelity vocal stack with neural reverb processing.</p>
+            <div class="studio-waveform" aria-hidden="true">
+              <span style="height: 38%"></span><span style="height: 58%"></span><span style="height: 80%"></span><span style="height: 52%"></span>
+              <span style="height: 42%"></span><span style="height: 70%"></span><span style="height: 28%"></span><span style="height: 62%"></span>
+              <span style="height: 48%"></span><span style="height: 76%"></span><span style="height: 44%"></span><span style="height: 82%"></span>
+              <span style="height: 66%"></span><span style="height: 36%"></span><span style="height: 58%"></span><span style="height: 74%"></span>
+            </div>
+            <div class="studio-tag-row"><span class="studio-tag">Ethereal</span><span class="studio-tag">124 BPM</span></div>
+          </article>
+
+          <article class="studio-panel studio-library-card">
+            <div class="studio-icon-tile"><span class="material-symbols-outlined">neurology</span></div>
+            <h3>Neon Pulse Bass</h3>
+            <p>Deep synthesis preset with dynamic LFO routing and controlled grit.</p>
+            <div class="studio-waveform" aria-hidden="true">
+              <span style="height: 18%"></span><span style="height: 42%"></span><span style="height: 64%"></span><span style="height: 86%"></span>
+              <span style="height: 76%"></span><span style="height: 56%"></span><span style="height: 32%"></span><span style="height: 48%"></span>
+              <span style="height: 64%"></span><span style="height: 70%"></span><span style="height: 58%"></span><span style="height: 46%"></span>
+              <span style="height: 62%"></span><span style="height: 84%"></span><span style="height: 54%"></span><span style="height: 38%"></span>
+            </div>
+            <div class="studio-tag-row"><span class="studio-tag">Dark</span><span class="studio-tag">Analog</span></div>
+          </article>
+
+          <article class="studio-panel studio-library-card">
+            <div class="studio-icon-tile"><span class="material-symbols-outlined">filter_drama</span></div>
+            <h3>Subzero Texture</h3>
+            <p>Crystalline pad texture with granular layers and wide frozen ambience.</p>
+            <div class="studio-waveform" aria-hidden="true">
+              <span style="height: 20%"></span><span style="height: 24%"></span><span style="height: 28%"></span><span style="height: 34%"></span>
+              <span style="height: 42%"></span><span style="height: 52%"></span><span style="height: 44%"></span><span style="height: 36%"></span>
+              <span style="height: 58%"></span><span style="height: 68%"></span><span style="height: 84%"></span><span style="height: 76%"></span>
+              <span style="height: 54%"></span><span style="height: 38%"></span><span style="height: 44%"></span><span style="height: 62%"></span>
+            </div>
+            <div class="studio-tag-row"><span class="studio-tag">Ambient</span><span class="studio-tag">Frozen</span></div>
+          </article>
+        </section>
+
+        <section class="studio-banner">
+          <div class="studio-panel-copy">
+            <span class="studio-chip is-primary"><span class="material-symbols-outlined">auto_awesome</span> Artificial Intelligence</span>
+            <h2 class="studio-page-title">Neural reconstruction tool</h2>
+            <p>Restore low-bitrate vocal stems or synthesize new harmonic layers without turning the library into a dead archive.</p>
+            <div class="studio-inline-actions">
+              <a class="studio-pill-button" href="creator-studio-lab.html">Open Tool</a>
+              <a class="studio-secondary-button" href="creator-studio-analytics.html">See impact</a>
+            </div>
+          </div>
+          <div class="studio-banner-visual">
+            <span class="material-symbols-outlined">psychology</span>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <footer class="studio-footer">
+      <div><p class="studio-card-kicker">NovaTone</p><p>Asset organization with room for more sections later.</p></div>
+      <div class="studio-footer-links"><a href="creator-studio.html">Dashboard</a><a href="creator-studio-lab.html">Studio Lab</a></div>
+    </footer>
+  </div>
+
+  <script src="js/studio-dashboard.js"></script>
+</body>
+</html>

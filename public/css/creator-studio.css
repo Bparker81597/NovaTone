@@ -398,6 +398,17 @@
   color: rgba(244, 247, 251, 0.9);
 }
 
+.studio-loading-logo {
+  display: block;
+  width: 172px;
+  height: 52px;
+  margin: 0 auto 14px;
+  object-fit: cover;
+  object-position: center;
+  user-select: none;
+  filter: drop-shadow(0 10px 24px rgba(168, 85, 247, 0.18));
+}
+
 .studio-loading-text {
   margin-top: 10px;
   color: var(--cyan);
@@ -489,7 +500,18 @@
 
 .studio-feedback-note {
   min-height: 24px;
+}
+
+.studio-feedback-note.is-success {
   color: rgba(148, 255, 227, 0.94);
+}
+
+.studio-feedback-note.is-error {
+  color: rgba(255, 177, 198, 0.94);
+}
+
+.studio-feedback-note.is-muted {
+  color: rgba(210, 221, 242, 0.86);
 }
 
 .studio-philosophy-tags {
@@ -497,6 +519,93 @@
   flex-wrap: wrap;
   gap: 10px;
   margin-top: 18px;
+}
+
+.studio-memory-section {
+  display: grid;
+  gap: 22px;
+}
+
+.studio-memory-summary {
+  display: grid;
+  gap: 10px;
+}
+
+.studio-memory-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.studio-memory-empty {
+  color: rgba(230, 235, 251, 0.9);
+}
+
+.memory-card {
+  display: grid;
+  gap: 16px;
+  border-color: rgba(168, 85, 247, 0.18);
+  background:
+    radial-gradient(circle at top right, rgba(255, 79, 216, 0.08), transparent 32%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.025)),
+    rgba(255, 255, 255, 0.03);
+}
+
+.memory-card-head,
+.memory-meta {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.memory-head-meta {
+  display: grid;
+  justify-items: end;
+  gap: 10px;
+}
+
+.memory-card-head h3 {
+  margin-top: 8px;
+  font-size: 1.3rem;
+}
+
+.memory-date,
+.memory-meta-label {
+  color: rgba(244, 247, 251, 0.72);
+  font-size: 0.76rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.memory-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.memory-chip-row span {
+  display: inline-flex;
+  align-items: center;
+  padding: 9px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 216, 255, 0.18);
+  background: rgba(255, 255, 255, 0.045);
+  color: var(--text);
+}
+
+.memory-summary {
+  color: rgba(230, 235, 251, 0.9);
+}
+
+.memory-meta {
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.memory-meta p:last-child {
+  margin-top: 8px;
+  color: rgba(230, 235, 251, 0.9);
 }
 
 @keyframes studioPulse {
@@ -544,5 +653,18 @@
 
   .studio-feedback-actions .button {
     width: 100%;
+  }
+
+  .studio-memory-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .memory-card-head,
+  .memory-meta {
+    flex-direction: column;
+  }
+
+  .memory-head-meta {
+    justify-items: start;
   }
 }

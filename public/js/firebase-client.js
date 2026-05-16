@@ -1,6 +1,4 @@
-import { initializeApp, getApps, getApp } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-app.js";
 import {
-  getFirestore,
   collection,
   addDoc,
   serverTimestamp,
@@ -9,33 +7,17 @@ import {
   getAnalytics,
   isSupported as analyticsSupported,
 } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-analytics.js";
-import { firebaseConfig, hasFirebaseConfig } from "./firebase-config.js";
+import { app, db, firebaseConfig, hasFirebaseConfig } from "./firebase-config.js";
 
-let appInstance = null;
-let dbInstance = null;
 let analyticsInstance = null;
 let analyticsInitPromise = null;
 
-function ensureFirebase() {
-  if (!hasFirebaseConfig()) {
-    return null;
-  }
-
-  if (!appInstance) {
-    appInstance = getApps().length ? getApp() : initializeApp(firebaseConfig);
-    dbInstance = getFirestore(appInstance);
-  }
-
-  return dbInstance;
-}
-
 export function isFirebaseReady() {
-  return Boolean(ensureFirebase());
+  return Boolean(db);
 }
 
 export function getFirebaseApp() {
-  ensureFirebase();
-  return appInstance;
+  return app;
 }
 
 export async function initFirebaseAnalytics() {
@@ -69,7 +51,6 @@ export async function initFirebaseAnalytics() {
 }
 
 export async function saveEarlyAccessApplication(payload) {
-  const db = ensureFirebase();
   if (!db) {
     throw new Error("Firebase is not configured.");
   }
@@ -84,7 +65,6 @@ export async function saveEarlyAccessApplication(payload) {
 }
 
 export async function createCreatorStudioSession(payload) {
-  const db = ensureFirebase();
   if (!db) {
     throw new Error("Firebase is not configured.");
   }
@@ -99,7 +79,6 @@ export async function createCreatorStudioSession(payload) {
 }
 
 export async function saveCreatorStudioFeedback(sessionId, payload) {
-  const db = ensureFirebase();
   if (!db) {
     throw new Error("Firebase is not configured.");
   }

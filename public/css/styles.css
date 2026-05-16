@@ -161,7 +161,7 @@ main {
 
 .nt-header-inner {
   position: relative;
-  min-height: 96px;
+  min-height: 88px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -191,45 +191,23 @@ main {
 .nt-brand {
   display: flex;
   align-items: center;
-  gap: 18px;
-  min-width: 290px;
-}
-
-.nt-logo {
-  width: 78px;
-  height: 78px;
-  object-fit: contain;
+  justify-content: flex-start;
+  width: clamp(260px, 26vw, 420px);
+  height: 72px;
   flex-shrink: 0;
+  text-decoration: none;
+  overflow: visible;
 }
 
-.nt-brand-copy {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  line-height: 1.05;
-}
-
-.nt-wordmark {
-  font-family: "Space Grotesk", sans-serif;
-  font-size: 1.32rem;
-  font-weight: 800;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-}
-
-.nt-tagline {
-  margin-top: 5px;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: rgba(244, 247, 251, 0.92);
-}
-
-.nt-built {
-  margin-top: 4px;
-  font-size: 0.78rem;
-  color: var(--muted);
+.nt-brand-logo {
+  width: 100%;
+  max-width: 420px;
+  max-height: 68px;
+  height: auto;
+  object-fit: contain;
+  object-position: left center;
+  display: block;
+  user-select: none;
 }
 
 .nt-menu-toggle {
@@ -239,8 +217,7 @@ main {
 .nt-nav {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  gap: 32px;
+  gap: 30px;
   margin-left: auto;
 }
 
@@ -532,6 +509,8 @@ li {
 
 .nt-hero-copy {
   max-width: 36rem;
+  position: relative;
+  z-index: 2;
 }
 
 .nt-hero-copy h1 {
@@ -582,6 +561,12 @@ li {
 .nt-wave-bg,
 .nt-page-hero-visual {
   min-height: 320px;
+}
+
+.nt-wave-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
 }
 
 .nt-wave-bg::before,
@@ -641,6 +626,13 @@ li {
   align-items: center;
   justify-content: space-between;
   gap: clamp(6px, 1vw, 12px);
+}
+
+.nt-wave-bars,
+.hero-wave-bars {
+  opacity: 0.28;
+  pointer-events: none;
+  z-index: 0;
 }
 
 .wave-bar,
@@ -997,21 +989,21 @@ select:focus {
   gap: 14px;
 }
 
-.footer-lockup img {
-  width: 46px;
-  height: 46px;
+.nt-footer-logo {
+  display: block;
+  width: 152px;
+  height: 48px;
+  object-fit: cover;
+  object-position: center;
+  user-select: none;
+  opacity: 0.82;
+  filter: saturate(0.82) brightness(0.96);
 }
 
 .footer-copy {
   display: flex;
   flex-direction: column;
   gap: 2px;
-}
-
-.footer-brand {
-  font-family: "Space Grotesk", sans-serif;
-  font-size: 1.04rem;
-  font-weight: 800;
 }
 
 .footer-tagline {
@@ -1076,7 +1068,6 @@ select:focus {
     padding: 20px 26px;
   }
 
-  .nt-hero,
   .nt-page-hero {
     grid-template-columns: 1fr;
   }
@@ -1118,25 +1109,6 @@ select:focus {
     min-height: 84px;
     padding: 16px 18px;
     gap: 18px;
-  }
-
-  .nt-brand {
-    min-width: 0;
-    gap: 12px;
-  }
-
-  .nt-logo {
-    width: 64px;
-    height: 64px;
-  }
-
-  .nt-wordmark {
-    font-size: 1.1rem;
-    letter-spacing: 0.16em;
-  }
-
-  .nt-tagline {
-    letter-spacing: 0.14em;
   }
 
   .nt-menu-toggle {
@@ -1223,20 +1195,6 @@ select:focus {
     width: min(calc(100% - 20px), var(--content-width));
   }
 
-  .nt-logo {
-    width: 56px;
-    height: 56px;
-  }
-
-  .nt-tagline {
-    font-size: 0.64rem;
-    letter-spacing: 0.1em;
-  }
-
-  .nt-built {
-    font-size: 0.72rem;
-  }
-
   .nt-hero-copy h1,
   .nt-page-hero-copy h1 {
     font-size: clamp(2.8rem, 10vw, 4.4rem);
@@ -1245,6 +1203,17 @@ select:focus {
   .nt-footer {
     flex-direction: column;
     align-items: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  .nt-brand {
+    width: clamp(210px, 60vw, 300px);
+    height: 58px;
+  }
+
+  .nt-brand-logo {
+    max-height: 54px;
   }
 }
 
@@ -1263,5 +1232,38 @@ select:focus {
   .reveal {
     opacity: 1;
     transform: none;
+  }
+}
+
+.nt-brand-crop {
+  width: 320px !important;
+  height: 76px !important;
+  overflow: hidden !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  flex: 0 0 320px !important;
+}
+
+.nt-brand-crop-img {
+  width: 520px !important;
+  max-width: none !important;
+  height: auto !important;
+  object-fit: contain !important;
+  transform: translateX(-82px) translateY(-8px) scale(1.45) !important;
+  transform-origin: left center !important;
+  display: block !important;
+}
+
+@media (max-width: 768px) {
+  .nt-brand-crop {
+    width: 240px !important;
+    height: 62px !important;
+    flex-basis: 240px !important;
+  }
+
+  .nt-brand-crop-img {
+    width: 430px !important;
+    transform: translateX(-72px) translateY(-6px) scale(1.35) !important;
   }
 }

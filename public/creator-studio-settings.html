@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="NovaTone Creator Studio settings for account security, billing, routing, and real-time processing preferences.">
+  <meta name="description" content="NovaTone Creator Studio settings for account security, routing, and real-time processing preferences.">
   <title>NovaTone | Studio Settings</title>
   <link rel="icon" type="image/png" href="assets/branding/novatone-logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,7 +25,7 @@
         <div class="studio-sidebar-head">
           <p class="studio-sidebar-kicker">Creator Studio</p>
           <h1 class="studio-brand-word"><a href="creator-studio.html">NovaTone</a></h1>
-          <p class="studio-muted">Routing, toggles, billing, and account security live here instead of in mixed modals.</p>
+          <p class="studio-muted">Routing, privacy, and account controls live here without pricing mixed into the creator workflow.</p>
         </div>
         <nav class="studio-sidebar-nav">
           <a class="studio-nav-link" href="creator-studio.html"><span class="material-symbols-outlined">dashboard</span><span>Dashboard</span></a>
@@ -33,6 +33,15 @@
           <a class="studio-nav-link" href="creator-studio-analytics.html"><span class="material-symbols-outlined">equalizer</span><span>Analytics</span></a>
           <a class="studio-nav-link is-active" href="creator-studio-settings.html" aria-current="page"><span class="material-symbols-outlined">settings</span><span>Settings</span></a>
         </nav>
+        <div class="studio-sidebar-foot">
+          <div class="studio-profile-card">
+            <div class="studio-profile-top">
+              <img class="studio-profile-avatar" src="assets/branding/novatone-logo.png" alt="Creator profile avatar" data-profile-avatar>
+              <div class="studio-profile-meta"><h2 data-profile-name>NovaTone Creator</h2><p data-profile-meta>Creator Profile</p></div>
+            </div>
+            <a class="studio-secondary-button" href="creator-studio-profile.html">Edit Profile</a>
+          </div>
+        </div>
       </aside>
 
       <main class="studio-main">
@@ -50,7 +59,7 @@
           <div class="studio-head-copy">
             <p class="studio-eyebrow">Studio Settings</p>
             <h1>Configure the acoustic environment</h1>
-            <p>Account settings, billing, routing, and AI behavior now have their own page-level hierarchy.</p>
+            <p>Account settings, routing, privacy, and AI behavior now have their own page-level hierarchy.</p>
           </div>
         </section>
 
@@ -68,19 +77,18 @@
             </div>
           </article>
 
-          <article class="studio-billing-card">
+          <article class="studio-panel">
             <div class="studio-panel-copy">
-              <p class="studio-card-kicker">Billing</p>
-              <h3>Pro Studio</h3>
-              <p>Annual plan with full studio shell access.</p>
+              <p class="studio-card-kicker">Profile Access</p>
+              <h3>Creator identity controls</h3>
+              <p>Use the profile page to update your avatar, public bio, featured work, and portfolio visibility.</p>
             </div>
             <div class="studio-settings-list">
-              <div class="studio-settings-row"><span>Next renewal</span><strong>Nov 12, 2024</strong></div>
-              <div class="studio-settings-row"><span>Annual total</span><strong>$299.00</strong></div>
+              <div class="studio-settings-row"><span>Avatar &amp; Name</span><strong>Managed in Profile</strong></div>
+              <div class="studio-settings-row"><span>Public Portfolio</span><strong>Managed in Profile</strong></div>
             </div>
             <div class="studio-inline-actions">
-              <a class="studio-outline-button" href="creator-studio.html">View Invoices</a>
-              <a class="studio-pill-button" href="early-access.html">Manage Plan</a>
+              <a class="studio-pill-button" href="creator-studio-profile.html">Open Profile Editor</a>
             </div>
           </article>
         </section>
@@ -129,6 +137,6 @@
     </footer>
   </div>
 
-  <script src="js/studio-dashboard.js"></script>
+  <script type="module" src="js/studio-shell.js"></script>
 </body>
 </html>

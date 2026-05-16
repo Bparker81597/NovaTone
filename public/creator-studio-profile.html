@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="NovaTone creator profile with sonic signature, visibility controls, and featured projects.">
+  <meta name="description" content="NovaTone creator profile with editable creator identity, social links, visibility controls, and featured projects.">
   <title>NovaTone | Creator Profile</title>
   <link rel="icon" type="image/png" href="assets/branding/novatone-logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,7 +25,7 @@
         <div class="studio-sidebar-head">
           <p class="studio-sidebar-kicker">Creator Studio</p>
           <h1 class="studio-brand-word"><a href="creator-studio.html">NovaTone</a></h1>
-          <p class="studio-muted">Public-facing creator identity and featured work now has a place in the studio map.</p>
+          <p class="studio-muted">A working creator profile with real editable identity, links, visibility, and featured work.</p>
         </div>
         <nav class="studio-sidebar-nav">
           <a class="studio-nav-link" href="creator-studio.html"><span class="material-symbols-outlined">dashboard</span><span>Dashboard</span></a>
@@ -41,27 +41,27 @@
             <span class="material-symbols-outlined">menu</span><span>Menu</span>
           </button>
           <div class="studio-topbar-actions">
-            <a class="studio-outline-button" href="creator-studio-settings.html">Studio Settings</a>
-            <a class="studio-pill-button" href="creator-studio-lab.html">Message Creator</a>
+            <button class="studio-outline-button" id="profile-reset" type="button">Reset Changes</button>
+            <button class="studio-pill-button" id="profile-save" type="button">Save Profile</button>
           </div>
         </section>
 
         <section class="studio-page-head">
           <div class="studio-profile-hero">
             <div class="studio-profile-portrait">
-              <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuB4nd72LUm6XR5FLdXgHMbeUD1N6KOVVvB5QFQ9WtOAHX_ssHlcYGRUmuyyO3AYaNDedexGGxqrMtphlSnHyXLBJ78lwXkP5iwxfLjy8Q22YlQfza50AeYXnBozlcTBGG_NRM0th9YIKRznccbZktSGaiZ1-9d8iZeFxc-p3LoAs5-WwagXRzbLxJbX_ml_5J0eTJwW688uAC8yXq2UbsCyRbsuQaqqXaYXjuS3rqiF_Lza_I7EXwIREf9LW2VdSIpUFpIizxj41vim" alt="Nova Echo portrait">
+              <img id="profile-preview-avatar" src="assets/branding/novatone-logo.png" alt="Creator profile portrait">
               <span class="studio-profile-verified"><span class="material-symbols-outlined">verified</span></span>
             </div>
             <div class="studio-head-copy">
-              <p class="studio-eyebrow">Premium Creator</p>
-              <h1>Nova Echo</h1>
-              <p>
-                Synthesizing the boundary between organic field recordings and hyper-digital synthesis.
-                This profile page gives the studio a clean public identity layer.
+              <p class="studio-eyebrow" id="profile-preview-role">Creator Profile</p>
+              <h1 id="profile-preview-name">NovaTone Creator</h1>
+              <p id="profile-preview-bio">
+                Build the public-facing version of your identity here. Your profile updates live as you edit, then saves to Firebase when you commit it.
               </p>
               <div class="studio-inline-actions">
-                <a class="studio-secondary-button" href="creator-studio.html">Follow</a>
-                <a class="studio-pill-button" href="creator-studio-lab.html">Message</a>
+                <span class="studio-chip is-primary" id="profile-visibility-chip">Public Portfolio</span>
+                <span class="studio-chip" id="profile-message-chip">Messages On</span>
+                <span class="studio-chip" id="profile-save-status">Unsaved Changes</span>
               </div>
             </div>
           </div>
@@ -71,71 +71,212 @@
           <article class="studio-panel">
             <div class="studio-panel-head">
               <div class="studio-panel-copy">
-                <p class="studio-card-kicker">Sonic Signature</p>
-                <h3>Real-time audio fingerprint</h3>
+                <p class="studio-card-kicker">Edit Profile</p>
+                <h3>Identity, links, and public-facing details</h3>
+                <p>Everything here is editable and saved per creator profile.</p>
               </div>
-              <span class="studio-chip is-primary">Live Stream</span>
             </div>
-            <div class="studio-visualizer" aria-hidden="true">
-              <span style="height: 40%"></span><span style="height: 60%"></span><span style="height: 30%"></span><span style="height: 80%"></span>
-              <span style="height: 50%"></span><span style="height: 90%"></span><span style="height: 45%"></span><span style="height: 75%"></span>
-              <span style="height: 100%"></span><span style="height: 65%"></span><span style="height: 85%"></span><span style="height: 40%"></span>
-              <span style="height: 20%"></span><span style="height: 55%"></span><span style="height: 95%"></span><span style="height: 35%"></span>
-              <span style="height: 70%"></span><span style="height: 50%"></span><span style="height: 80%"></span><span style="height: 60%"></span>
-              <span style="height: 90%"></span><span style="height: 40%"></span>
-            </div>
-            <div class="studio-mini-grid">
-              <div class="studio-mini-card"><p>Tone Density</p><h3>0.92</h3></div>
-              <div class="studio-mini-card"><p>Harmonic Flux</p><h3>High</h3></div>
-              <div class="studio-mini-card"><p>Spectral Width</p><h3>22kHz</h3></div>
-              <div class="studio-mini-card"><p>Resonance</p><h3>Deep</h3></div>
-            </div>
+
+            <form class="studio-profile-form" id="profile-form">
+              <div class="studio-form-grid">
+                <label class="studio-field">
+                  <span>Display Name</span>
+                  <input id="profile-display-name" name="displayName" type="text" placeholder="Nova Echo">
+                </label>
+
+                <label class="studio-field">
+                  <span>Handle</span>
+                  <input id="profile-handle" name="handle" type="text" placeholder="@novaecho">
+                </label>
+              </div>
+
+              <div class="studio-form-grid">
+                <label class="studio-field">
+                  <span>Role Label</span>
+                  <input id="profile-role-label" name="roleLabel" type="text" placeholder="Premium Creator">
+                </label>
+
+                <label class="studio-field">
+                  <span>Location</span>
+                  <input id="profile-location" name="location" type="text" placeholder="Detroit, MI">
+                </label>
+              </div>
+
+              <label class="studio-field">
+                <span>Bio</span>
+                <textarea id="profile-bio" name="bio" rows="4" placeholder="Describe your sound, approach, and creative identity."></textarea>
+              </label>
+
+              <div class="studio-form-grid">
+                <label class="studio-field">
+                  <span>Genres / Tags</span>
+                  <input id="profile-genres" name="genres" type="text" placeholder="Synthwave, Ambient, Alt-R&amp;B">
+                </label>
+
+                <label class="studio-field studio-avatar-upload">
+                  <span>Avatar Upload</span>
+                  <input id="profile-avatar-file" name="avatarFile" type="file" accept="image/*">
+                  <small>Upload an image here instead of pasting a URL.</small>
+                </label>
+              </div>
+
+              <div class="studio-form-grid">
+                <label class="studio-field">
+                  <span>Website</span>
+                  <input id="profile-website-url" name="websiteUrl" type="url" placeholder="https://yourstudio.com">
+                </label>
+
+                <label class="studio-field">
+                  <span>Instagram</span>
+                  <input id="profile-instagram-url" name="instagramUrl" type="url" placeholder="https://instagram.com/yourhandle">
+                </label>
+              </div>
+
+              <label class="studio-field">
+                <span>SoundCloud</span>
+                <input id="profile-soundcloud-url" name="soundcloudUrl" type="url" placeholder="https://soundcloud.com/yourprofile">
+              </label>
+
+              <div class="studio-form-grid">
+                <label class="studio-switch-row" for="profile-public-portfolio">
+                  <div>
+                    <strong>Public Portfolio</strong>
+                    <p>Control whether the profile reads as public-facing or studio-private.</p>
+                  </div>
+                  <input id="profile-public-portfolio" name="publicPortfolio" type="checkbox">
+                </label>
+
+                <label class="studio-switch-row" for="profile-allow-messages">
+                  <div>
+                    <strong>Allow Messages</strong>
+                    <p>Show that collaborators can reach out through the profile surface.</p>
+                  </div>
+                  <input id="profile-allow-messages" name="allowMessages" type="checkbox">
+                </label>
+              </div>
+            </form>
           </article>
 
           <div class="studio-side-stack">
             <article class="studio-panel">
               <div class="studio-panel-copy">
-                <p class="studio-card-kicker">Privacy &amp; View</p>
-                <h3>Public Portfolio</h3>
-                <p>Visibility and social surface controls can grow here later.</p>
+                <p class="studio-card-kicker">Profile Health</p>
+                <h3>Live profile state</h3>
               </div>
               <div class="studio-settings-list">
-                <div class="studio-settings-row"><span>Followers</span><strong>12.8K</strong></div>
-                <div class="studio-settings-row"><span>Streams</span><strong>2.4M</strong></div>
+                <div class="studio-settings-row"><span>Creator ID</span><strong id="profile-creator-id">Loading</strong></div>
+                <div class="studio-settings-row"><span>Saved Sessions</span><strong id="profile-session-count">0</strong></div>
+                <div class="studio-settings-row"><span>Reviewed Sessions</span><strong id="profile-reviewed-count">0</strong></div>
+                <div class="studio-settings-row"><span>Primary Vibe</span><strong id="profile-primary-vibe">Not set</strong></div>
               </div>
+              <p class="studio-form-note" id="profile-feedback-note">Profile changes have not been saved yet.</p>
             </article>
 
             <article class="studio-panel">
               <div class="studio-panel-copy">
-                <p class="studio-card-kicker">Social Links</p>
-                <h3>Connected presence</h3>
+                <p class="studio-card-kicker">Connected Presence</p>
+                <h3>Public links preview</h3>
               </div>
-              <div class="studio-chip-row">
-                <span class="studio-chip">Share</span>
-                <span class="studio-chip">Podcasts</span>
-                <span class="studio-chip">Website</span>
+              <div class="studio-chip-row" id="profile-social-preview">
+                <span class="studio-chip">Website Pending</span>
+                <span class="studio-chip">Instagram Pending</span>
+                <span class="studio-chip">SoundCloud Pending</span>
               </div>
             </article>
           </div>
         </section>
 
         <section class="studio-panel">
-          <div class="studio-panel-copy">
-            <p class="studio-card-kicker">Top Projects</p>
-            <h3>Featured releases</h3>
+          <div class="studio-panel-head">
+            <div class="studio-panel-copy">
+              <p class="studio-card-kicker">Sonic Signature</p>
+              <h3>Profile signals from your saved sessions</h3>
+              <p>The profile page now reads from your real session history instead of hardcoded placeholders.</p>
+            </div>
+            <span class="studio-chip is-primary" id="profile-session-status">No sessions yet</span>
           </div>
-          <div class="studio-project-grid">
+          <div class="studio-visualizer" id="profile-visualizer" aria-hidden="true">
+            <span style="height: 32%"></span><span style="height: 44%"></span><span style="height: 56%"></span><span style="height: 68%"></span>
+            <span style="height: 52%"></span><span style="height: 72%"></span><span style="height: 46%"></span><span style="height: 80%"></span>
+            <span style="height: 94%"></span><span style="height: 58%"></span><span style="height: 76%"></span><span style="height: 42%"></span>
+            <span style="height: 30%"></span><span style="height: 54%"></span><span style="height: 88%"></span><span style="height: 38%"></span>
+            <span style="height: 70%"></span><span style="height: 52%"></span><span style="height: 78%"></span><span style="height: 60%"></span>
+            <span style="height: 84%"></span><span style="height: 48%"></span>
+          </div>
+          <div class="studio-mini-grid">
+            <div class="studio-mini-card"><p>Profile Focus</p><h3 id="profile-focus-value">Building</h3></div>
+            <div class="studio-mini-card"><p>Top Identity Trait</p><h3 id="profile-trait-value">Emerging</h3></div>
+            <div class="studio-mini-card"><p>Average Energy</p><h3 id="profile-energy-value">0</h3></div>
+            <div class="studio-mini-card"><p>Last Updated</p><h3 id="profile-updated-value">Now</h3></div>
+          </div>
+        </section>
+
+        <section class="studio-panel">
+          <div class="studio-panel-head">
+            <div class="studio-panel-copy">
+              <p class="studio-card-kicker">Featured Projects</p>
+              <h3>Editable project cards</h3>
+            </div>
+          </div>
+          <div class="studio-project-editor-grid">
+            <div class="studio-project-editor">
+              <label class="studio-field">
+                <span>Project One Title</span>
+                <input id="project-1-title" type="text" placeholder="Neon Synthesis">
+              </label>
+              <label class="studio-field">
+                <span>Project One Meta</span>
+                <input id="project-1-meta" type="text" placeholder="LP / Electronic">
+              </label>
+              <label class="studio-field">
+                <span>Project One Description</span>
+                <textarea id="project-1-description" rows="3" placeholder="Describe the release and what makes it important."></textarea>
+              </label>
+            </div>
+
+            <div class="studio-project-editor">
+              <label class="studio-field">
+                <span>Project Two Title</span>
+                <input id="project-2-title" type="text" placeholder="Static Fields">
+              </label>
+              <label class="studio-field">
+                <span>Project Two Meta</span>
+                <input id="project-2-meta" type="text" placeholder="EP / Ambient">
+              </label>
+              <label class="studio-field">
+                <span>Project Two Description</span>
+                <textarea id="project-2-description" rows="3" placeholder="Describe the release and what makes it important."></textarea>
+              </label>
+            </div>
+
+            <div class="studio-project-editor">
+              <label class="studio-field">
+                <span>Project Three Title</span>
+                <input id="project-3-title" type="text" placeholder="Kinetic Pulse">
+              </label>
+              <label class="studio-field">
+                <span>Project Three Meta</span>
+                <input id="project-3-meta" type="text" placeholder="Single / Techno">
+              </label>
+              <label class="studio-field">
+                <span>Project Three Description</span>
+                <textarea id="project-3-description" rows="3" placeholder="Describe the release and what makes it important."></textarea>
+              </label>
+            </div>
+          </div>
+
+          <div class="studio-project-grid" id="profile-project-preview">
             <article class="studio-project-card">
               <div class="studio-project-cover"></div>
-              <div class="studio-project-copy"><h3>Neon Synthesis</h3><p>1.2M listens. Heavy bass and glass-like synthesis.</p></div>
+              <div class="studio-project-copy"><h3>Neon Synthesis</h3><p>LP / Electronic</p></div>
             </article>
             <article class="studio-project-card">
               <div class="studio-project-cover"></div>
-              <div class="studio-project-copy"><h3>Static Fields</h3><p>850K listens. Atmospheric server-farm soundscapes.</p></div>
+              <div class="studio-project-copy"><h3>Static Fields</h3><p>EP / Ambient</p></div>
             </article>
             <article class="studio-project-card">
               <div class="studio-project-cover"></div>
-              <div class="studio-project-copy"><h3>Kinetic Pulse</h3><p>2.1M listens. Algorithmic percussion and forward motion.</p></div>
+              <div class="studio-project-copy"><h3>Kinetic Pulse</h3><p>Single / Techno</p></div>
             </article>
           </div>
         </section>
@@ -143,11 +284,11 @@
     </div>
 
     <footer class="studio-footer">
-      <div><p class="studio-card-kicker">NovaTone</p><p>The profile page gives the studio a clean outward-facing layer without mixing it into settings or analytics.</p></div>
-      <div class="studio-footer-links"><a href="creator-studio.html">Dashboard</a><a href="creator-studio-library.html">Library</a></div>
+      <div><p class="studio-card-kicker">NovaTone</p><p>The creator profile now behaves like a real editable surface instead of a static mockup.</p></div>
+      <div class="studio-footer-links"><a href="creator-studio.html">Dashboard</a><a href="creator-studio-settings.html">Settings</a></div>
     </footer>
   </div>
 
-  <script src="js/studio-dashboard.js"></script>
+  <script type="module" src="js/creator-profile.js"></script>
 </body>
 </html>

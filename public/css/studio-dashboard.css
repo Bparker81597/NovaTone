@@ -825,13 +825,101 @@
   color: var(--muted);
 }
 
+.studio-profile-form,
+.studio-project-editor-grid {
+  display: grid;
+  gap: 18px;
+}
+
+.studio-form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.studio-field {
+  display: grid;
+  gap: 10px;
+}
+
+.studio-field span {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.studio-field input,
+.studio-field textarea {
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+  padding: 14px 16px;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.04);
+  outline: 0;
+}
+
+.studio-field input:focus,
+.studio-field textarea:focus {
+  border-color: rgba(0, 216, 255, 0.4);
+  box-shadow: 0 0 0 1px rgba(0, 216, 255, 0.14);
+}
+
+.studio-avatar-upload small {
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.studio-switch-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 18px 20px;
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.studio-switch-row strong,
+.studio-switch-row p {
+  margin: 0;
+}
+
+.studio-switch-row p,
+.studio-form-note {
+  color: var(--muted);
+  font-size: 0.84rem;
+}
+
+.studio-switch-row input {
+  width: 22px;
+  height: 22px;
+  accent-color: #00d8ff;
+}
+
+.studio-project-editor-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 18px;
+}
+
+.studio-project-editor {
+  padding: 18px;
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.04);
+}
+
 @media (max-width: 1180px) {
   .studio-app,
   .studio-settings-grid,
   .studio-analytics-grid,
   .studio-dual-grid,
   .studio-banner,
-  .studio-profile-hero {
+  .studio-profile-hero,
+  .studio-project-editor-grid {
     grid-template-columns: 1fr;
   }
 
@@ -892,7 +980,8 @@
   .studio-profile-grid,
   .studio-project-grid,
   .studio-mini-grid,
-  .studio-panel-stat-grid {
+  .studio-panel-stat-grid,
+  .studio-form-grid {
     grid-template-columns: 1fr;
   }
 
@@ -919,7 +1008,8 @@
   .studio-table-row,
   .studio-table-stats,
   .studio-panel-head,
-  .studio-banner {
+  .studio-banner,
+  .studio-switch-row {
     flex-direction: column;
     align-items: flex-start;
   }

@@ -53,6 +53,15 @@ service cloud.firestore {
       return value in ['Yes', 'No'];
     }
 
+    function isBoolean(value) {
+      return value is bool;
+    }
+
+    function isStringList(values, maxItems) {
+      return values is list &&
+        values.size() <= maxItems;
+    }
+
     function isValidEarlyAccessApplication(data) {
       return data.keys().hasOnly([
           'creatorName',
@@ -186,6 +195,73 @@ service cloud.firestore {
         data.submittedAt == request.time;
     }
 
+    function isValidVibeSessionAnalysis(data) {
+      return data is map &&
+        data.keys().hasOnly([
+          'vibeSummary',
+          'emotionalEnergy',
+          'identityTraits',
+          'arrangementInsight',
+          'artistIdentityInsight'
+        ]) &&
+        isShortString(data.vibeSummary, 1200) &&
+        isNumeric(data.emotionalEnergy) &&
+        data.emotionalEnergy >= 0 &&
+        data.emotionalEnergy <= 100 &&
+        isStringList(data.identityTraits, 10) &&
+        isShortString(data.arrangementInsight, 3000) &&
+        isShortString(data.artistIdentityInsight, 3000);
+    }
+
+    function isValidVibeSession(data, docId) {
+      return data.keys().hasOnly([
+          'sessionId',
+          'creatorId',
+          'trackTitle',
+          'uploadedFileName',
+          'uploadedFileUrl',
+          'selectedVibeTags',
+          'creativeIntent',
+          'whatMakesItYou',
+          'currentStage',
+          'inspirations',
+          'analysisResults',
+          'vibeSummary',
+          'emotionalEnergy',
+          'identityTraits',
+          'arrangementInsight',
+          'artistIdentityInsight',
+          'creatorFeedbackRating',
+          'inspiredNewIdeas',
+          'helpfulTags',
+          'feltOffText',
+          'createdAt'
+        ]) &&
+        data.sessionId == docId &&
+        isShortString(data.creatorId, 200) &&
+        isShortString(data.trackTitle, 180) &&
+        isShortString(data.uploadedFileName, 240) &&
+        isOptionalString(data.uploadedFileUrl, 500) &&
+        isStringList(data.selectedVibeTags, 9) &&
+        isOptionalString(data.creativeIntent, 3000) &&
+        isOptionalString(data.whatMakesItYou, 3000) &&
+        isValidStudioStage(data.currentStage) &&
+        isOptionalString(data.inspirations, 2000) &&
+        isValidVibeSessionAnalysis(data.analysisResults) &&
+        isShortString(data.vibeSummary, 1200) &&
+        isNumeric(data.emotionalEnergy) &&
+        data.emotionalEnergy >= 0 &&
+        data.emotionalEnergy <= 100 &&
+        isStringList(data.identityTraits, 10) &&
+        isShortString(data.arrangementInsight, 3000) &&
+        isShortString(data.artistIdentityInsight, 3000) &&
+        isValidAccuracy(data.creatorFeedbackRating) &&
+        isBoolean(data.inspiredNewIdeas) &&
+        isStringList(data.helpfulTags, 5) &&
+        isOptionalString(data.feltOffText, 3000) &&
+        data.createdAt == request.time;
+    }
+
     match /earlyAccessApplications/{applicationId} {
       allow create: if isValidEarlyAccessApplication(request.resource.data);
       allow read, update, delete: if false;
@@ -204,6 +280,14 @@ service cloud.firestore {
     match /creatorStudioFeedback/{feedbackId} {
       allow create: if false;
       allow read, update, delete: if false;
+    }
+
+    match /vibeSessions/{sessionId} {
+      // Development note: guest-mode history reads are intentionally simple here.
+      // Tighten access before public launch, ideally behind authenticated ownership.
+      allow create: if isValidVibeSession(request.resource.data, sessionId);
+      allow read: if true;
+      allow update, delete: if false;
     }
 
     match /{document=**} {
